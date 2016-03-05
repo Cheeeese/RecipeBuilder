@@ -19,5 +19,19 @@
             </objects>
             <point key="canvasLocation" x="162.66666666666666" y="355.47333333333336"/>
         </scene>
+        <!--Timers View Controller-->
+        <scene sceneID="drB-Ce-Ffu">
+            <objects>
+                <viewController id="muT-cy-YIS" customClass="TimersViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rIy-vS-EOS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ch-4e-7Lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="355"/>
+        </scene>
     </scenes>
 </document>

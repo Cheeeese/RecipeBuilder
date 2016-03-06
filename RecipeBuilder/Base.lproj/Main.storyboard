@@ -1,59 +1,277 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Container View Controller" customClass="ContainerViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6eW-ix-08Y">
-                                <rect key="frame" x="66" y="49" width="188" height="30"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="cIi-iu-xHc" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="691"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Link to Timer Screen">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="muT-cy-YIS" kind="modal" id="ZW7-Jp-kHQ"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Eqz-mG-Rqx" userLabel="Bottom Nav">
+                                <rect key="frame" x="0.0" y="615" width="375" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bottomNav" id="1ES-gr-pea">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cSS-9Q-51q">
+                                        <rect key="frame" x="252" y="0.0" width="125" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapNavItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lqj-nR-vqq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wv4-IR-y9k">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapNavItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2PE-Sh-CDo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="byM-Wa-gyn">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapNavItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x1C-uG-31V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="contentView" destination="cIi-iu-xHc" id="3Jt-lX-y7T"/>
+                        <outletCollection property="buttons" destination="byM-Wa-gyn" collectionClass="NSMutableArray" id="jBR-Y9-L94"/>
+                        <outletCollection property="buttons" destination="wv4-IR-y9k" collectionClass="NSMutableArray" id="M5O-Xf-xvB"/>
+                        <outletCollection property="buttons" destination="cSS-9Q-51q" collectionClass="NSMutableArray" id="55i-Ua-kIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="355"/>
+            <point key="canvasLocation" x="339.5" y="-599.5"/>
+        </scene>
+        <!--My Recipes View Controller-->
+        <scene sceneID="3Oi-xA-O85">
+            <objects>
+                <viewController storyboardIdentifier="MyRecipesViewController" id="0bB-ll-JF2" userLabel="My Recipes View Controller" customClass="MyRecipesViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qaD-gc-bpe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="825"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="e00-C4-mZW">
+                                <rect key="frame" x="0.0" y="65" width="375" height="685"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="homeFeed" id="sOC-CU-0LK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="760"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" id="X1Q-9e-rQY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RBW-gu-iRl">
+                                        <rect key="frame" x="143" y="28" width="89" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="plusIcon" id="lLq-rU-MdQ">
+                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Rge-nf-0NB" appends="YES" id="SPx-0n-jkY"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="825"/>
+                    <connections>
+                        <outlet property="homeFeed" destination="sOC-CU-0LK" id="CRg-mO-tYe"/>
+                        <outlet property="scrollView" destination="e00-C4-mZW" id="Hba-Qn-Spr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jhl-OC-m3R" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Rge-nf-0NB">
+                    <connections>
+                        <segue destination="qdJ-G4-92E" kind="modal" id="sfZ-Y9-K3k"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-78.5" y="355"/>
+        </scene>
+        <!--Shopping List View Controller-->
+        <scene sceneID="1JY-EP-SPB">
+            <objects>
+                <viewController storyboardIdentifier="ShoppingListViewController" id="Ao7-Cz-eOd" userLabel="Shopping List View Controller" customClass="ShoppingListViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9qr-Dc-mhU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3mI-03-QPa">
+                                <rect key="frame" x="0.0" y="65" width="375" height="753"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shoppingList" id="QGz-kt-iE2">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="630"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" id="ze3-RD-o3T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UJq-aU-wZH">
+                                        <rect key="frame" x="135" y="27" width="105" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="plusIcon" id="eOX-jg-lG1">
+                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAB-lV-vvB" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401.5" y="305"/>
+        </scene>
+        <!--Create Recipe View Controller-->
+        <scene sceneID="k9O-to-X8d">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkV-qh-7iC" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CreateRecipeViewController" id="qdJ-G4-92E" userLabel="Create Recipe View Controller" customClass="CreateRecipeViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M0R-JV-CPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hv1-ht-oMF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="createRecipe" id="O7K-yT-F6S">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1273"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wtB-MA-geV">
+                                        <rect key="frame" x="0.0" y="8" width="51" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="didTapBack:" destination="qdJ-G4-92E" eventType="touchUpInside" id="rIh-gc-MZX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1300"/>
+                    <connections>
+                        <outlet property="createRecipeImage" destination="O7K-yT-F6S" id="Z6K-Bg-3Bk"/>
+                        <outlet property="scrollView" destination="hv1-ht-oMF" id="n2B-Qt-F0h"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-78.5" y="1832"/>
         </scene>
         <!--Timers View Controller-->
         <scene sceneID="drB-Ce-Ffu">
             <objects>
-                <viewController id="muT-cy-YIS" customClass="TimersViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimersViewController" id="muT-cy-YIS" customClass="TimersViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rIy-vS-EOS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1fX-oc-GzH">
-                                <rect key="frame" x="109" y="20" width="102" height="21"/>
+                            <view contentMode="scaleToFill" id="P1V-xm-gJx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zR8-HE-Riu">
+                                        <rect key="frame" x="161" y="27" width="53" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="plusIcon" id="0jR-BM-HFh">
+                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="cn8-WI-hZZ">
+                                <rect key="frame" x="0.0" y="65" width="375" height="753"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="timers" id="CMs-0t-6H6">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ch-4e-7Lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="355"/>
+            <point key="canvasLocation" x="909.5" y="238.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottomNav" width="375" height="52"/>
+        <image name="createRecipe" width="375" height="1273"/>
+        <image name="homeFeed" width="375" height="760"/>
+        <image name="plusIcon" width="30" height="30"/>
+        <image name="shoppingList" width="375" height="630"/>
+        <image name="timers" width="375" height="630"/>
+    </resources>
 </document>

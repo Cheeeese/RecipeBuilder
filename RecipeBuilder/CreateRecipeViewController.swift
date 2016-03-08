@@ -17,6 +17,8 @@ class CreateRecipeViewController: UIViewController {
         super.viewDidLoad()
 
         scrollView.contentSize = createRecipeImage.image!.size
+        
+        print("hi")
     }
 
     // go back to my recipes

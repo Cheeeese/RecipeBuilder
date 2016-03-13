@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Container View Controller-->
@@ -142,16 +142,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3mI-03-QPa">
-                                <rect key="frame" x="0.0" y="65" width="375" height="753"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shoppingList" id="QGz-kt-iE2">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="630"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
-                                </subviews>
-                            </scrollView>
                             <view contentMode="scaleToFill" id="ze3-RD-o3T">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,9 +157,32 @@
                                         <rect key="frame" x="337" y="27" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DtG-nr-gAk">
+                                        <rect key="frame" x="223" y="6" width="84" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Temp List"/>
+                                        <connections>
+                                            <segue destination="mtt-Mm-FcM" kind="modal" id="CRM-DM-Qt6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="28" sectionFooterHeight="28" id="QQH-XA-VbR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="172" id="gBT-vA-7gZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="172"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gBT-vA-7gZ" id="17Q-f9-Lx3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -180,10 +193,71 @@
             </objects>
             <point key="canvasLocation" x="401.5" y="305"/>
         </scene>
+        <!--Temp Shopping List View Controller-->
+        <scene sceneID="fLL-3q-og6">
+            <objects>
+                <viewController id="mtt-Mm-FcM" customClass="TempShoppingListViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LNj-r5-nxY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3mI-03-QPa">
+                                <rect key="frame" x="0.0" y="13" width="375" height="753"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shoppingList" id="QGz-kt-iE2">
+                                        <rect key="frame" x="0.0" y="187" width="375" height="630"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="lJd-1t-ZZ5">
+                                        <rect key="frame" x="0.0" y="76" width="375" height="91"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="fqC-Tx-NaC">
+                                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="JUR-nJ-9Zj">
+                                                <rect key="frame" x="330" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rzm-hq-Mxe">
+                                                <rect key="frame" x="8" y="13" width="359" height="65"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.37647058820000001" green="0.74901960779999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9oX-zI-tt0">
+                                        <rect key="frame" x="24" y="20" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="Ao7-Cz-eOd" kind="modal" id="Bus-No-mxk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="archiveIconView" destination="fqC-Tx-NaC" id="JUD-5N-8Lq"/>
+                        <outlet property="deleteIconView" destination="JUR-nJ-9Zj" id="IqP-0u-zjP"/>
+                        <outlet property="shoppingItemBackgroundView" destination="lJd-1t-ZZ5" id="vYR-Cj-hZf"/>
+                        <outlet property="shoppingItemView" destination="rzm-hq-Mxe" id="1Sh-jA-gb0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4aP-x5-OfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401.5" y="1272"/>
+        </scene>
         <!--Create Recipe View Controller-->
         <scene sceneID="k9O-to-X8d">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CkV-qh-7iC" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CreateRecipeViewController" id="qdJ-G4-92E" userLabel="Create Recipe View Controller" customClass="CreateRecipeViewController" customModule="RecipeBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M0R-JV-CPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
@@ -216,6 +290,7 @@
                         <outlet property="scrollView" destination="hv1-ht-oMF" id="n2B-Qt-F0h"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkV-qh-7iC" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-78.5" y="1832"/>
         </scene>
@@ -267,8 +342,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
         <image name="bottomNav" width="375" height="52"/>
         <image name="createRecipe" width="375" height="1273"/>
+        <image name="delete_icon" width="25" height="25"/>
         <image name="homeFeed" width="375" height="760"/>
         <image name="plusIcon" width="30" height="30"/>
         <image name="shoppingList" width="375" height="630"/>

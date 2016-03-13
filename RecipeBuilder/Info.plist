@@ -32,7 +32,9 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SF-UI-Text</string>
+		<string>SF-UI-Text-Light.otf</string>
+		<string>SF-UI-Text-Medium.otf</string>
+		<string>SF-UI-Text-Regular</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

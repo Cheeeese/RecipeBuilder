@@ -20,6 +20,7 @@
         <mutableArray key="SF-UI-Text-Regular.otf">
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -514,7 +515,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" id="cSN-m0-ab4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeImageInputCell" rowHeight="160" id="Xsp-Bn-zRj" customClass="RecipeImageInputCell" customModule="RecipeBuilder" customModuleProvider="target">
@@ -524,11 +525,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="EVv-CX-Cvr">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="EVv-CX-Cvr">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.98565180519999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.85490196080000003" green="0.8862745098" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bSS-Gl-9vS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                    <inset key="titleEdgeInsets" minX="-55" minY="55" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="70" minY="-15" maxX="0.0" maxY="0.0"/>
+                                                    <size key="titleShadowOffset" width="0.0" height="2.2250738585072014e-308"/>
+                                                    <state key="normal" title="Add Image" image="addImageBtn">
+                                                        <color key="titleColor" red="0.45882352939999999" green="0.52941176469999995" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addImageTapped:" destination="qdJ-G4-92E" eventType="touchUpInside" id="K5i-Dm-VAu"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -636,6 +651,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addImageBtn" width="59" height="42"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="bottomNav" width="375" height="52"/>
         <image name="delete_icon" width="25" height="25"/>

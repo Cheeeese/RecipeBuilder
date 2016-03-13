@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeInputTableView: UITableView!
+    
+    let imagePicker = UIImagePickerController()
+    var selectedImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipeInputTableView.dataSource = self
         recipeInputTableView.delegate = self
         //recipeInputTableView.rowHeight = 160
+        
+        self.recipeInputTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        imagePicker.delegate = self
 
     }
 
@@ -44,6 +50,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         if indexPath.row == 0 {
             let recipeImageInputCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageInputCell") as! RecipeImageInputCell
+            
+            selectedImage = recipeImageInputCell.recipeImage
+            
             return recipeImageInputCell
         
         } else if indexPath.row == 1  {
@@ -65,6 +74,33 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             return 50
         }
     }
+    
+    
+    @IBAction func addImageTapped(sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            
+            
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        selectedImage.image = image
+        
+    }
+
+    
     
 
     /*

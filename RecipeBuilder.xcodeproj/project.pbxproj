@@ -31,6 +31,8 @@
 		899CD5581C95D51F00B6B2C6 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5571C95D51F00B6B2C6 /* TitleCell.swift */; };
 		899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */; };
 		899CD55C1C95DBF300B6B2C6 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD55B1C95DBF300B6B2C6 /* DetailsCell.swift */; };
+		B5EFB0741C95F27900F47E52 /* RecipeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFB0731C95F27900F47E52 /* RecipeImageCell.swift */; };
+		B5EFB0761C95F29500F47E52 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFB0751C95F29500F47E52 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		899CD5571C95D51F00B6B2C6 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../TitleCell.swift; sourceTree = "<group>"; };
 		899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		899CD55B1C95DBF300B6B2C6 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
+		B5EFB0731C95F27900F47E52 /* RecipeImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeImageCell.swift; path = ../RecipeImageCell.swift; sourceTree = "<group>"; };
+		B5EFB0751C95F29500F47E52 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCell.swift; path = ../CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			children = (
 				44825A361C8B99B100836493 /* Main.storyboard */,
 				44C4FC631C95EE8A00C7706F /* ShoppingItemCell.swift */,
+				B5EFB0771C95F2A300F47E52 /* CreateRecipeCells */,
 				44825A321C8B99B100836493 /* AppDelegate.swift */,
 				89186B501C95DCFA00669EEB /* ViewRecipeFiles */,
 				44825A341C8B99B100836493 /* ViewController.swift */,
@@ -190,6 +195,13 @@
 				89186B5A1C95DF0100669EEB /* SF-UI-Text-Regular.otf */,
 			);
 			name = Resources;
+		B5EFB0771C95F2A300F47E52 /* CreateRecipeCells */ = {
+			isa = PBXGroup;
+			children = (
+				B5EFB0751C95F29500F47E52 /* CategoryCell.swift */,
+				B5EFB0731C95F27900F47E52 /* RecipeImageCell.swift */,
+			);
+			name = CreateRecipeCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,9 +344,11 @@
 				890B2C671C8CE2D20029504E /* MyRecipesViewController.swift in Sources */,
 				44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */,
 				8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */,
+				B5EFB0741C95F27900F47E52 /* RecipeImageCell.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,
 				89186B611C95E01700669EEB /* RecipeImageCell.swift in Sources */,
 				44C4FC641C95EE8A00C7706F /* ShoppingItemCell.swift in Sources */,
+				B5EFB0761C95F29500F47E52 /* CategoryCell.swift in Sources */,
 				8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */,
 				44825A351C8B99B100836493 /* ViewController.swift in Sources */,
 				899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */,

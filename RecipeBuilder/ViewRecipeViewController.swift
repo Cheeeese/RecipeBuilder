@@ -33,7 +33,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             return recipeImageCell
         }
         
-        if indexPath.row == 1 {
+        else if indexPath.row == 1 {
             let categoryCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
             return categoryCell
         }
@@ -54,10 +54,16 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             return detailsCell
         }
         
+        else if indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 7 {
+            let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+            return ingredientsCell
+        }
+        
         else {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
             return ingredientsCell
         }
+
         
     }
     

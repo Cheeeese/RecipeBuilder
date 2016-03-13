@@ -27,6 +27,9 @@
 		8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4031C8CE31F00E5CC0C /* ShoppingListViewController.swift */; };
 		8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4051C8CE32F00E5CC0C /* CreateRecipeViewController.swift */; };
 		8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */; };
+		894356DE1C962162009226A4 /* DirectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894356DD1C962162009226A4 /* DirectionsCell.swift */; };
+		894356E01C962968009226A4 /* IngredientsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894356DF1C962968009226A4 /* IngredientsHeaderCell.swift */; };
+		894356E21C962978009226A4 /* DirectionsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894356E11C962978009226A4 /* DirectionsHeaderCell.swift */; };
 		899CD5561C95D3C000B6B2C6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5551C95D3C000B6B2C6 /* CategoryCell.swift */; };
 		899CD5581C95D51F00B6B2C6 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5571C95D51F00B6B2C6 /* TitleCell.swift */; };
 		899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */; };
@@ -77,6 +80,9 @@
 		8923C4031C8CE31F00E5CC0C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		8923C4051C8CE32F00E5CC0C /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 		8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		894356DD1C962162009226A4 /* DirectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsCell.swift; sourceTree = "<group>"; };
+		894356DF1C962968009226A4 /* IngredientsHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsHeaderCell.swift; sourceTree = "<group>"; };
+		894356E11C962978009226A4 /* DirectionsHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsHeaderCell.swift; sourceTree = "<group>"; };
 		899CD5551C95D3C000B6B2C6 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		899CD5571C95D51F00B6B2C6 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../TitleCell.swift; sourceTree = "<group>"; };
 		899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
@@ -178,6 +184,9 @@
 				899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */,
 				899CD5551C95D3C000B6B2C6 /* CategoryCell.swift */,
 				89186B601C95E01700669EEB /* RecipeImageCell.swift */,
+				894356DD1C962162009226A4 /* DirectionsCell.swift */,
+				894356E11C962978009226A4 /* DirectionsHeaderCell.swift */,
+				894356DF1C962968009226A4 /* IngredientsHeaderCell.swift */,
 			);
 			name = ViewRecipeFiles;
 			sourceTree = "<group>";
@@ -333,8 +342,11 @@
 				44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */,
 				8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,
+				894356E21C962978009226A4 /* DirectionsHeaderCell.swift in Sources */,
 				89186B611C95E01700669EEB /* RecipeImageCell.swift in Sources */,
 				44C4FC641C95EE8A00C7706F /* ShoppingItemCell.swift in Sources */,
+				894356E01C962968009226A4 /* IngredientsHeaderCell.swift in Sources */,
+				894356DE1C962162009226A4 /* DirectionsCell.swift in Sources */,
 				8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */,
 				44825A351C8B99B100836493 /* ViewController.swift in Sources */,
 				899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */,

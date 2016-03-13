@@ -17,16 +17,15 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 100
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 14
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // category cell
         
         if indexPath.row == 0 {
             let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
@@ -38,7 +37,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             return categoryCell
         }
         
-        // title cell
         else if indexPath.row == 2  {
             let titleCell = tableView.dequeueReusableCellWithIdentifier("TitleCell") as! TitleCell
             return titleCell
@@ -53,17 +51,47 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             let detailsCell = tableView.dequeueReusableCellWithIdentifier("DetailsCell") as! DetailsCell
             return detailsCell
         }
+            
+        else if indexPath.row == 5 {
+            let ingredientsHeaderCell = tableView.dequeueReusableCellWithIdentifier("IngredientsHeaderCell") as! IngredientsHeaderCell
+            return ingredientsHeaderCell
+        }
         
-        else if indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 7 {
+        else if indexPath.row == 6 || indexPath.row == 7 || indexPath.row == 8 || indexPath.row == 9 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
             return ingredientsCell
         }
         
+        else if indexPath.row == 10 {
+            let directionsHeaderCell = tableView.dequeueReusableCellWithIdentifier("DirectionsHeaderCell") as! DirectionsHeaderCell
+            return directionsHeaderCell
+        }
+            
+        else if indexPath.row == 11 || indexPath.row == 12 || indexPath.row == 13 {
+            let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
+            return directionsCell
+        }
+            
         else {
-            let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-            return ingredientsCell
+            let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
+            return directionsCell
         }
-
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 230
+        }
+        else if indexPath.row == 2 || indexPath.row == 4 {
+            return 40
+        }
+        else if indexPath.row == 3 || indexPath.row == 5 || indexPath.row == 10 {
+            return 50
+        }
+        else {
+            return 30
+        }
+  
         
     }
     

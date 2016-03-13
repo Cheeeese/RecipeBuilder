@@ -1,5 +1,5 @@
 //
-//  IngredientsCell.swift
+//  DirectionsHeaderCell.swift
 //  RecipeBuilder
 //
 //  Created by Anjani Bhargava on 3/13/16.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class IngredientsCell: UITableViewCell {
-    
+class DirectionsHeaderCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

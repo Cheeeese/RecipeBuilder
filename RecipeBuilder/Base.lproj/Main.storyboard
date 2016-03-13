@@ -299,6 +299,14 @@
                                         <rect key="frame" x="0.0" y="187" width="375" height="630"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9oX-zI-tt0">
+                                        <rect key="frame" x="24" y="20" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="Ao7-Cz-eOd" kind="modal" id="Bus-No-mxk"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" id="lJd-1t-ZZ5">
                                         <rect key="frame" x="0.0" y="76" width="375" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -311,7 +319,7 @@
                                                 <rect key="frame" x="330" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rzm-hq-Mxe">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rzm-hq-Mxe">
                                                 <rect key="frame" x="8" y="13" width="359" height="65"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.37647058820000001" green="0.74901960779999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -319,14 +327,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9oX-zI-tt0">
-                                        <rect key="frame" x="24" y="20" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <segue destination="Ao7-Cz-eOd" kind="modal" id="Bus-No-mxk"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -337,6 +337,7 @@
                     <connections>
                         <outlet property="archiveIconView" destination="fqC-Tx-NaC" id="JUD-5N-8Lq"/>
                         <outlet property="deleteIconView" destination="JUR-nJ-9Zj" id="IqP-0u-zjP"/>
+                        <outlet property="scrollView" destination="3mI-03-QPa" id="ZCA-9l-d1H"/>
                         <outlet property="shoppingItemBackgroundView" destination="lJd-1t-ZZ5" id="vYR-Cj-hZf"/>
                         <outlet property="shoppingItemView" destination="rzm-hq-Mxe" id="1Sh-jA-gb0"/>
                     </connections>

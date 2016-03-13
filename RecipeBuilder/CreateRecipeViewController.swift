@@ -8,17 +8,18 @@
 
 import UIKit
 
-class CreateRecipeViewController: UIViewController {
+class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var createRecipeImage: UIImageView!
+    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeInputTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        scrollView.contentSize = createRecipeImage.image!.size
         
-        print("hi")
+        recipeInputTableView.dataSource = self
+        recipeInputTableView.delegate = self
+        //recipeInputTableView.rowHeight = 160
+
     }
 
     // go back to my recipes
@@ -30,6 +31,39 @@ class CreateRecipeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // category cell
+        
+        if indexPath.row == 0 {
+            let recipeImageInputCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageInputCell") as! RecipeImageInputCell
+            return recipeImageInputCell
+        
+        } else if indexPath.row == 1  {
+            let titleInputCell = tableView.dequeueReusableCellWithIdentifier("TitleInputCell") as! TitleInputCell
+            return titleInputCell
+            
+        } else {
+            let categoryInputCell = tableView.dequeueReusableCellWithIdentifier("CategoryInputCell") as! CategoryInputCell
+            return categoryInputCell
+            
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 160
+        } else {
+            return 50
+        }
     }
     
 

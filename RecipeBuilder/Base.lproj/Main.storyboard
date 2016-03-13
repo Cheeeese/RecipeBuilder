@@ -510,10 +510,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" id="ih7-Ar-FbR">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hv1-ht-oMF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-<<<<<<< Updated upstream
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="createRecipe" id="O7K-yT-F6S">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1273"/>
@@ -522,120 +521,20 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wtB-MA-geV">
                                         <rect key="frame" x="0.0" y="8" width="51" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-=======
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="133" id="5S3-LE-Pxp" userLabel="ImageCell" customClass="RecipeImageCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="133"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5S3-LE-Pxp" id="fbe-Rn-ugq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RJw-qf-hyW">
-                                                    <rect key="frame" x="0.0" y="-29" width="375" height="161.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qQ5-pN-lev">
-                                                    <rect key="frame" x="120" y="17" width="135" height="99"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="contentEdgeInsets" minX="0.0" minY="70" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Add Image"/>
-                                                    <connections>
-                                                        <action selector="addImage:" destination="qdJ-G4-92E" eventType="touchUpInside" id="e94-QG-p0A"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
->>>>>>> Stashed changes
                                         <connections>
-                                            <outlet property="recipeImage" destination="RJw-qf-hyW" id="mtf-d3-cm2"/>
+                                            <action selector="didTapBack:" destination="qdJ-G4-92E" eventType="touchUpInside" id="rIh-gc-MZX"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="54" id="Xjh-2Y-zBp" userLabel="TitleCell" customClass="CreateRecipeCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="161" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xjh-2Y-zBp" id="Yav-m3-4p9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" id="94K-hO-fhd">
-                                                    <rect key="frame" x="14" y="0.0" width="346" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescriptionCell" rowHeight="54" id="s2X-t3-QZw" userLabel="DescriptionCell">
-                                        <rect key="frame" x="0.0" y="215" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s2X-t3-QZw" id="dtz-dv-mzY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" id="CER-jm-PZj">
-                                                    <rect key="frame" x="14" y="0.0" width="346" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="54" id="ZcP-E9-qJr" userLabel="CategoryCell" customClass="CategoryCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="269" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZcP-E9-qJr" id="H6W-0X-cVC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="natural" minimumFontSize="17" id="CGG-2n-927">
-                                                    <rect key="frame" x="14" y="1" width="346" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="categoryTextField" destination="CGG-2n-927" id="Ycr-Zu-Pn4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="b9j-CT-UOd" userLabel="ServingsCell">
-                                        <rect key="frame" x="0.0" y="323" width="375" height="68"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b9j-CT-UOd" id="bav-It-ouV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="R1g-t6-qP3" userLabel="PrepTimeCell">
-                                        <rect key="frame" x="0.0" y="391" width="375" height="68"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R1g-t6-qP3" id="uAQ-fb-t9I">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="lOM-H1-eYC" userLabel="CookTimeCell">
-                                        <rect key="frame" x="0.0" y="459" width="375" height="68"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lOM-H1-eYC" id="e0J-nw-lV3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1300"/>
                     <connections>
-                        <outlet property="createRecipeTableView" destination="ih7-Ar-FbR" id="HuC-Vz-RQc"/>
+                        <outlet property="createRecipeImage" destination="O7K-yT-F6S" id="Z6K-Bg-3Bk"/>
+                        <outlet property="scrollView" destination="hv1-ht-oMF" id="n2B-Qt-F0h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkV-qh-7iC" sceneMemberID="firstResponder"/>
@@ -687,28 +586,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ch-4e-7Lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1441.5" y="238.5"/>
-        </scene>
-        <!--Create Recipe View Controller-->
-        <scene sceneID="CIF-rA-cva">
-            <objects>
-                <viewController id="XIV-em-uv6" userLabel="Create Recipe View Controller" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MEi-8L-X4a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="createRecipe" id="7YZ-dA-5QO">
-                                <rect key="frame" x="0.0" y="14" width="375" height="1273"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1300"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4JO-id-X8M" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="339.5" y="1832"/>
         </scene>
     </scenes>
     <resources>

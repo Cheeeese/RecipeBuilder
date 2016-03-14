@@ -8,17 +8,24 @@
 
 import UIKit
 
-class CreateRecipeViewController: UIViewController {
+class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var createRecipeImage: UIImageView!
+    @IBOutlet weak var recipeInputTableView: UITableView!
+    
+    let imagePicker = UIImagePickerController()
+    var selectedImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        scrollView.contentSize = createRecipeImage.image!.size
         
-        print("hi")
+        recipeInputTableView.dataSource = self
+        recipeInputTableView.delegate = self
+        //recipeInputTableView.rowHeight = 160
+        
+        self.recipeInputTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        imagePicker.delegate = self
+
     }
 
     // go back to my recipes
@@ -31,6 +38,69 @@ class CreateRecipeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // category cell
+        
+        if indexPath.row == 0 {
+            let recipeImageInputCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageInputCell") as! RecipeImageInputCell
+            
+            selectedImage = recipeImageInputCell.recipeImage
+            
+            return recipeImageInputCell
+        
+        } else if indexPath.row == 1  {
+            let titleInputCell = tableView.dequeueReusableCellWithIdentifier("TitleInputCell") as! TitleInputCell
+            return titleInputCell
+            
+        } else {
+            let categoryInputCell = tableView.dequeueReusableCellWithIdentifier("CategoryInputCell") as! CategoryInputCell
+            return categoryInputCell
+            
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 160
+        } else {
+            return 50
+        }
+    }
+    
+    
+    @IBAction func addImageTapped(sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            
+            
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        selectedImage.image = image
+        
+    }
+
+    
     
 
     /*

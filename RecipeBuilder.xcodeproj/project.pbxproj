@@ -34,6 +34,10 @@
 		899CD5581C95D51F00B6B2C6 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5571C95D51F00B6B2C6 /* TitleCell.swift */; };
 		899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */; };
 		899CD55C1C95DBF300B6B2C6 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD55B1C95DBF300B6B2C6 /* DetailsCell.swift */; };
+		B523B0291C96233600FC5BFD /* RecipeImageInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0281C96233600FC5BFD /* RecipeImageInputCell.swift */; };
+		B523B02B1C9623F000FC5BFD /* TitleInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02A1C9623F000FC5BFD /* TitleInputCell.swift */; };
+		B523B02D1C96240700FC5BFD /* DescriptionInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */; };
+		B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,10 @@
 		899CD5571C95D51F00B6B2C6 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../TitleCell.swift; sourceTree = "<group>"; };
 		899CD5591C95DA1800B6B2C6 /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		899CD55B1C95DBF300B6B2C6 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
+		B523B0281C96233600FC5BFD /* RecipeImageInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImageInputCell.swift; sourceTree = "<group>"; };
+		B523B02A1C9623F000FC5BFD /* TitleInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleInputCell.swift; sourceTree = "<group>"; };
+		B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionInputCell.swift; sourceTree = "<group>"; };
+		B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInputCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 				44C4FC631C95EE8A00C7706F /* ShoppingItemCell.swift */,
 				44825A321C8B99B100836493 /* AppDelegate.swift */,
 				89186B501C95DCFA00669EEB /* ViewRecipeFiles */,
+				B523B0271C961F8500FC5BFD /* CreateRecipeCells */,
 				44825A341C8B99B100836493 /* ViewController.swift */,
 				44C4FC611C9533B300C7706F /* TempShoppingListViewController.swift */,
 				8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */,
@@ -199,6 +208,17 @@
 				89186B5A1C95DF0100669EEB /* SF-UI-Text-Regular.otf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		B523B0271C961F8500FC5BFD /* CreateRecipeCells */ = {
+			isa = PBXGroup;
+			children = (
+				B523B02A1C9623F000FC5BFD /* TitleInputCell.swift */,
+				B523B0281C96233600FC5BFD /* RecipeImageInputCell.swift */,
+				B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */,
+				B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */,
+			);
+			name = CreateRecipeCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,10 +357,13 @@
 			files = (
 				44C4FC621C9533B300C7706F /* TempShoppingListViewController.swift in Sources */,
 				899CD5581C95D51F00B6B2C6 /* TitleCell.swift in Sources */,
+				B523B0291C96233600FC5BFD /* RecipeImageInputCell.swift in Sources */,
+				B523B02B1C9623F000FC5BFD /* TitleInputCell.swift in Sources */,
 				899CD55C1C95DBF300B6B2C6 /* DetailsCell.swift in Sources */,
 				890B2C671C8CE2D20029504E /* MyRecipesViewController.swift in Sources */,
 				44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */,
 				8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */,
+				B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,
 				894356E21C962978009226A4 /* DirectionsHeaderCell.swift in Sources */,
 				89186B611C95E01700669EEB /* RecipeImageCell.swift in Sources */,
@@ -352,6 +375,7 @@
 				899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */,
 				890BD7961C95477500BB7E9C /* ViewRecipeViewController.swift in Sources */,
 				44825A331C8B99B100836493 /* AppDelegate.swift in Sources */,
+				B523B02D1C96240700FC5BFD /* DescriptionInputCell.swift in Sources */,
 				89186B5F1C95DFAF00669EEB /* IngredientsCell.swift in Sources */,
 				899CD5561C95D3C000B6B2C6 /* CategoryCell.swift in Sources */,
 			);

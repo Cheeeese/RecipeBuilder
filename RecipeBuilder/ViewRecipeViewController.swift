@@ -11,6 +11,7 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var ingredientsArray = ["2 boneless, skinless chicken thighs", "1 medium sweet potato", "1/2 cup onion", "2 teaspoons Cajun seasoning", "pinch of salt", "olive oil", "fried egg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,15 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // photos, deatils
         if section == 0 {
             return 5
         }
+        // ingredients
+        else if section == 1 {
+            return ingredientsArray.count
+        }
+        // directions
         else {
             return 4
         }
@@ -61,6 +68,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+            ingredientsCell.ingredientsLabel.text = ingredientsArray[indexPath.row]
+            
             return ingredientsCell
         }
         
@@ -130,17 +139,17 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
                 return 60
             }
             // details
-            else if indexPath.row == 4 {
-                return 40
-            }
-            // ingredients, directions
             else {
-                return 42
+                return 40
             }
         }
             
+        else if indexPath.section == 1 {
+            return 30
+        }
+        
         else {
-            return 40
+            return 60
         }
         
     }

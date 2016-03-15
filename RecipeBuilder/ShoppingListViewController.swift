@@ -56,6 +56,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         cell.shoppingItemLabel.text = shoppingList[indexPath.row]
         cell.selectionStyle = .None
         
+        cell.shoppingListViewController = self
         
         return cell
     }

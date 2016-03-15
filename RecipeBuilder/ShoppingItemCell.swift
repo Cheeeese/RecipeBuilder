@@ -34,6 +34,8 @@ class ShoppingItemCell: UITableViewCell {
     let redColor = UIColor(red: 233.0/255.0, green: 83.0/255.0, blue: 52.0/255.0, alpha: 1.0)
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     
+    var shoppingListViewController: ShoppingListViewController!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -127,13 +129,16 @@ class ShoppingItemCell: UITableViewCell {
 
                     }, completion: { (Bool) -> Void in
 
-                        UIView.animateWithDuration(0.2, animations: { () -> Void in
-                            shoppingList.removeAtIndex(indexPath.row)
-                            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                        
+//                        self.shoppingListViewController.deleteRowsAtIndexPaths([], withRowAnimation: UITableViewRowAnimation.Automatic)
+                        
+//                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                            shoppingList.removeAtIndex(indexPath.row)
+//                            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
 
 //                            self.shoppingItemBackgroundView.frame = CGRect(x: self.shoppingItemBackgroundView.frame.origin.x, y: self.shoppingItemBackgroundView.frame.origin.y, width: self.shoppingItemBackgroundView.frame.width, height: 0.0)
 //
-                        })
+//                        })
 
                 })
 

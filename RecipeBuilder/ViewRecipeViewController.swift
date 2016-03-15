@@ -22,7 +22,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

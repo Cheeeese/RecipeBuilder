@@ -9,6 +9,9 @@
 import UIKit
 
 class DescriptionInputCell: UITableViewCell {
+    
+    @IBOutlet weak var descriptionInputLabel: UILabel!
+    @IBOutlet weak var descriptionInputTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()

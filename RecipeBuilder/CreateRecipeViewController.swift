@@ -52,7 +52,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -69,13 +69,18 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             let titleInputCell = tableView.dequeueReusableCellWithIdentifier("TitleInputCell") as! TitleInputCell
             return titleInputCell
             
-        } else {
+        } else if indexPath.row == 2 {
             let categoryInputCell = tableView.dequeueReusableCellWithIdentifier("CategoryInputCell") as! CategoryInputCell
             
             categoryInputTextField = categoryInputCell.categoryInputTextField
             categoryInputCell.categoryInputTextField.inputView = picker
             
             return categoryInputCell
+            
+        } else {
+            let descriptionInputCell = tableView.dequeueReusableCellWithIdentifier("DescriptionInputCell") as! DescriptionInputCell
+            
+            return descriptionInputCell
             
         }
         
@@ -84,8 +89,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 160
-        } else {
+        } else if indexPath.row == 1 || indexPath.row == 2 {
+            
             return 50
+        } else {
+            return 145
         }
     }
     
@@ -142,6 +150,24 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     }
 
 
+    @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
+    
+    
+    @IBAction func dismissCreateRecipe(sender: UIButton) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    //Hide the status bar
+    override func prefersStatusBarHidden() -> Bool {
+        
+        return true;
+    }
     
     
 

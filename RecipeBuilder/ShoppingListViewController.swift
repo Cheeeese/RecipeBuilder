@@ -16,7 +16,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
 //    let CellIdentifier = "ShoppingItemCell"
     
     // TEMP DEFINED THE SHOPPING LIST
-    var shoppingList = ["2 sweet potatoes", "2 eggs", "1  onion", "Olive Oil", "Basil", "Thyme", "Chili Flakes", "Chives", "Parsley"]
+    var shoppingList = ["2 sweet potatoes", "2 eggs", "1  onion", "Olive Oil", "Basil", "Thyme", "Chili Flakes", "Chives", "Parsley", "Bread"]
+    var shoppingListChecked = [0,0,0,0,0,0,0,0,0,0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,30 +43,33 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // TEMP SET AT 10
         return shoppingList.count
 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("Row: \(indexPath.row)")
+        print("Number of Rows: \(indexPath.row)")
 
         var cell = shoppingListTableView.dequeueReusableCellWithIdentifier("ShoppingItemCell", forIndexPath: indexPath) as! ShoppingItemCell
         
+        cell.reset()
+        
         cell.shoppingItemLabel.text = shoppingList[indexPath.row]
+        if shoppingListChecked[indexPath.row] == 0 {
+            cell.shoppingItemView.backgroundColor = UIColor(red: 113.0/255.0, green: 217.0/255.0, blue: 98.0/255.0, alpha: 1.0)
+        } else {
+            cell.shoppingItemView.backgroundColor = UIColor(red: 249.0/255.0, green: 212.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        }
+        
         cell.selectionStyle = .None
         
         cell.shoppingListViewController = self
+        cell.cellIndexPath = indexPath
         
         return cell
     }
     
-    
-    
-    
-    
-
     /*
     // MARK: - Navigation
 

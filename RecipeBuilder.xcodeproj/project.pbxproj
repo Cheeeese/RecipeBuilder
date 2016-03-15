@@ -17,6 +17,7 @@
 		44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44825A601C8B9E3D00836493 /* TimersViewController.swift */; };
 		44C4FC621C9533B300C7706F /* TempShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4FC611C9533B300C7706F /* TempShoppingListViewController.swift */; };
 		44C4FC641C95EE8A00C7706F /* ShoppingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4FC631C95EE8A00C7706F /* ShoppingItemCell.swift */; };
+		44F995211C97B55100B26956 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F995201C97B55100B26956 /* Common.swift */; };
 		890B2C671C8CE2D20029504E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2C661C8CE2D20029504E /* MyRecipesViewController.swift */; };
 		890BD7961C95477500BB7E9C /* ViewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890BD7951C95477500BB7E9C /* ViewRecipeViewController.swift */; };
 		89186B5B1C95DF0100669EEB /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89186B581C95DF0100669EEB /* SF-UI-Text-Light.otf */; };
@@ -74,6 +75,7 @@
 		44825A601C8B9E3D00836493 /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimersViewController.swift; sourceTree = "<group>"; };
 		44C4FC611C9533B300C7706F /* TempShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempShoppingListViewController.swift; sourceTree = "<group>"; };
 		44C4FC631C95EE8A00C7706F /* ShoppingItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemCell.swift; sourceTree = "<group>"; };
+		44F995201C97B55100B26956 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		890B2C661C8CE2D20029504E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		890BD7951C95477500BB7E9C /* ViewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRecipeViewController.swift; sourceTree = "<group>"; };
 		89186B581C95DF0100669EEB /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				44825A361C8B99B100836493 /* Main.storyboard */,
 				44C4FC631C95EE8A00C7706F /* ShoppingItemCell.swift */,
+				44F995201C97B55100B26956 /* Common.swift */,
 				44825A321C8B99B100836493 /* AppDelegate.swift */,
 				89186B501C95DCFA00669EEB /* ViewRecipeFiles */,
 				B523B0271C961F8500FC5BFD /* CreateRecipeCells */,
@@ -371,6 +374,7 @@
 				894356E01C962968009226A4 /* IngredientsHeaderCell.swift in Sources */,
 				894356DE1C962162009226A4 /* DirectionsCell.swift in Sources */,
 				8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */,
+				44F995211C97B55100B26956 /* Common.swift in Sources */,
 				44825A351C8B99B100836493 /* ViewController.swift in Sources */,
 				899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */,
 				890BD7961C95477500BB7E9C /* ViewRecipeViewController.swift in Sources */,

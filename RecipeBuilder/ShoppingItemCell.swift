@@ -35,6 +35,7 @@ class ShoppingItemCell: UITableViewCell {
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     
     var shoppingListViewController: ShoppingListViewController!
+    var cellIndexPath: NSIndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,13 +61,20 @@ class ShoppingItemCell: UITableViewCell {
         shoppingItemView.addGestureRecognizer(panGestureRecognizer)
         
 
-        
+        shoppingItemOriginalCenter = shoppingItemView.center
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func reset() {
+        if self.shoppingItemView != nil {
+            self.shoppingItemView.center = self.shoppingItemOriginalCenter
+            self.shoppingItemView.backgroundColor = self.greenColor
+        }
     }
 
     
@@ -112,6 +120,7 @@ class ShoppingItemCell: UITableViewCell {
 
                         self.shoppingItemView.center = self.shoppingItemStaticLeft
                         self.shoppingItemView.backgroundColor = self.yellowColor
+                        self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
                         UIView.animateWithDuration(0.2, animations: { () -> Void in
                             self.shoppingItemView.center = self.shoppingItemStaticCenter
 
@@ -129,12 +138,28 @@ class ShoppingItemCell: UITableViewCell {
 
                     }, completion: { (Bool) -> Void in
 
-                        
+// What is the indexPath?
+// Can set the index path as a variable in the cell.  And set the index path when you load the cell
+// If you're gonig to use the delte at row, need to do tableView.beginupdates and then tableview.endupdates
+                        // tableview.indexpathforcell
+
+
+                        print("This row \(self.cellIndexPath.row)")
+                        print("This row \([self.cellIndexPath])")
+                        self.shoppingListViewController.shoppingList.removeAtIndex(self.cellIndexPath.row)
+                        self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
+
+                        self.shoppingListViewController.shoppingListTableView.beginUpdates()
+                        self.shoppingListViewController.shoppingListTableView.deleteRowsAtIndexPaths([self.cellIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                        self.shoppingListViewController.shoppingListTableView.endUpdates()
+
+                        delay(1) {
+                            self.shoppingListViewController.shoppingListTableView.reloadData()
+                        }
+
 //                        self.shoppingListViewController.deleteRowsAtIndexPaths([], withRowAnimation: UITableViewRowAnimation.Automatic)
                         
 //                        UIView.animateWithDuration(0.2, animations: { () -> Void in
-//                            shoppingList.removeAtIndex(indexPath.row)
-//                            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
 
 //                            self.shoppingItemBackgroundView.frame = CGRect(x: self.shoppingItemBackgroundView.frame.origin.x, y: self.shoppingItemBackgroundView.frame.origin.y, width: self.shoppingItemBackgroundView.frame.width, height: 0.0)
 //

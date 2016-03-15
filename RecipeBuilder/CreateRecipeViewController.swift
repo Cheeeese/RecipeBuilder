@@ -8,12 +8,18 @@
 
 import UIKit
 
-class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var recipeInputTableView: UITableView!
     
     let imagePicker = UIImagePickerController()
     var selectedImage: UIImageView!
+    var addImageBtn: UIButton!
+    var categoryInputTextField: UITextField!
+    
+    var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
+    var picker = UIPickerView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         self.recipeInputTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         imagePicker.delegate = self
+        
+        picker.delegate = self
+        picker.dataSource = self
+        //categoryInputTextField.inputView = picker
+        //categoryInputTextField.text = nil
 
     }
 
@@ -46,12 +57,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // category cell
-        
         if indexPath.row == 0 {
             let recipeImageInputCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageInputCell") as! RecipeImageInputCell
             
             selectedImage = recipeImageInputCell.recipeImage
+            addImageBtn = recipeImageInputCell.addImageBtn
             
             return recipeImageInputCell
         
@@ -61,6 +71,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
         } else {
             let categoryInputCell = tableView.dequeueReusableCellWithIdentifier("CategoryInputCell") as! CategoryInputCell
+            
+            categoryInputTextField = categoryInputCell.categoryInputTextField
+            categoryInputCell.categoryInputTextField.inputView = picker
+            
             return categoryInputCell
             
         }
@@ -98,7 +112,35 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         selectedImage.image = image
         
+        if addImageBtn == nil {
+            addImageBtn.alpha = 1
+        } else {
+            //addImageBtn.alpha = 0.1
+            addImageBtn.setImage(nil, forState: .Normal)
+            addImageBtn.setTitle(nil, forState: .Normal)
+        }
+        
     }
+    
+    
+    //Category Picker
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryData.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryInputTextField.text = categoryData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryData[row]
+    }
+
 
     
     

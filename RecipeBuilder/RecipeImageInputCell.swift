@@ -11,7 +11,7 @@ import UIKit
 class RecipeImageInputCell: UITableViewCell {
 
     @IBOutlet weak var recipeImage: UIImageView!
-    
+    @IBOutlet weak var addImageBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

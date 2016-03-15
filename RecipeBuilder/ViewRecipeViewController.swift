@@ -71,23 +71,71 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
 
     }
     
+    //headers
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 1 {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            label.text = "Ingredients"
+            label.textColor = UIColor.blackColor()
+            label.font = UIFont(name: "SFUIText-Regular", size: 18)
+            headerView.addSubview(label)
+            return headerView
+        }
+        
+        else if section == 2 {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            label.text = "Directions"
+            label.textColor = UIColor.blackColor()
+            label.font = UIFont(name: "SFUIText-Regular", size: 18)
+            headerView.addSubview(label)
+            return headerView
+        }
+        
+        else {
+            return nil
+        }
+    }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        else {
+            return 40
+        }
+    }
+    
+    
+    // heights for rows
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
+            // photo
             if indexPath.row == 0 {
                 return 230
             }
+            // category
             else if indexPath.row == 1 {
                 return 30
             }
+            // title
             else if indexPath.row == 2 {
-                return 40
+                return 30
             }
+            // description
             else if indexPath.row == 3 {
-                return 50
+                return 60
             }
-            else {
+            // details
+            else if indexPath.row == 4 {
                 return 40
+            }
+            // ingredients, directions
+            else {
+                return 42
             }
         }
             

@@ -11,6 +11,7 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var ingredientsArray = ["2 boneless, skinless chicken thighs", "1 medium sweet potato", "1/2 cup onion", "2 teaspoons Cajun seasoning", "pinch of salt", "olive oil", "fried egg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,18 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        // photos, deatils
+        if section == 0 {
+            return 5
+        }
+        // ingredients
+        else if section == 1 {
+            return ingredientsArray.count
+        }
+        // directions
+        else {
+            return 4
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -30,74 +42,118 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
-            return recipeImageCell
+
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
+                return recipeImageCell
+            }
+            else if indexPath.row == 1 {
+                let categoryCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
+                return categoryCell
+            }
+            else if indexPath.row == 2 {
+                let titleCell = tableView.dequeueReusableCellWithIdentifier("TitleCell") as! TitleCell
+                return titleCell
+            }
+            else if indexPath.row == 3 {
+                let descriptionCell = tableView.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionCell
+                return descriptionCell
+            }
+            else {
+                let detailsCell = tableView.dequeueReusableCellWithIdentifier("DetailsCell") as! DetailsCell
+                return detailsCell
+            }
         }
         
-        else if indexPath.row == 1 {
-            let categoryCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
-            return categoryCell
-        }
-        
-        else if indexPath.row == 2  {
-            let titleCell = tableView.dequeueReusableCellWithIdentifier("TitleCell") as! TitleCell
-            return titleCell
-        }
-        
-        else if indexPath.row == 3 {
-            let descriptionCell = tableView.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionCell
-            return descriptionCell
-        }
-        
-        else if indexPath.row == 4 {
-            let detailsCell = tableView.dequeueReusableCellWithIdentifier("DetailsCell") as! DetailsCell
-            return detailsCell
-        }
-            
-        else if indexPath.row == 5 {
-            let ingredientsHeaderCell = tableView.dequeueReusableCellWithIdentifier("IngredientsHeaderCell") as! IngredientsHeaderCell
-            return ingredientsHeaderCell
-        }
-        
-        else if indexPath.row == 6 || indexPath.row == 7 || indexPath.row == 8 || indexPath.row == 9 {
+        else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+            ingredientsCell.ingredientsLabel.text = ingredientsArray[indexPath.row]
+            
             return ingredientsCell
         }
         
-        else if indexPath.row == 10 {
-            let directionsHeaderCell = tableView.dequeueReusableCellWithIdentifier("DirectionsHeaderCell") as! DirectionsHeaderCell
-            return directionsHeaderCell
-        }
-            
-        else if indexPath.row == 11 || indexPath.row == 12 || indexPath.row == 13 {
-            let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
-            return directionsCell
-        }
-            
         else {
             let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
             return directionsCell
+        }
+
+    }
+    
+    //headers
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 1 {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            label.text = "Ingredients"
+            label.textColor = UIColor.blackColor()
+            label.font = UIFont(name: "SFUIText-Regular", size: 18)
+            headerView.addSubview(label)
+            return headerView
+        }
+        
+        else if section == 2 {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            label.text = "Directions"
+            label.textColor = UIColor.blackColor()
+            label.font = UIFont(name: "SFUIText-Regular", size: 18)
+            headerView.addSubview(label)
+            return headerView
+        }
+        
+        else {
+            return nil
+        }
+    }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        else {
+            return 40
         }
     }
     
+    
+    // heights for rows
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 230
+        
+        if indexPath.section == 0 {
+            // photo
+            if indexPath.row == 0 {
+                return 230
+            }
+            // category
+            else if indexPath.row == 1 {
+                return 30
+            }
+            // title
+            else if indexPath.row == 2 {
+                return 30
+            }
+            // description
+            else if indexPath.row == 3 {
+                return 60
+            }
+            // details
+            else {
+                return 40
+            }
         }
-        else if indexPath.row == 2 || indexPath.row == 4 {
-            return 40
-        }
-        else if indexPath.row == 3 || indexPath.row == 5 || indexPath.row == 10 {
-            return 50
-        }
-        else {
+            
+        else if indexPath.section == 1 {
             return 30
         }
-  
+        
+        else {
+            return 60
+        }
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

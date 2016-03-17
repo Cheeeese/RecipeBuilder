@@ -132,11 +132,7 @@
                                         <rect key="frame" x="0.0" y="258" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K10-va-cOm" id="3Iw-dx-OXh">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="29.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FCU-l2-pti">
@@ -156,11 +152,7 @@
                                         <rect key="frame" x="0.0" y="288" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJ7-qc-3yg" id="7TN-Yj-Qhc">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="29.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gmF-j6-J4d">
@@ -180,15 +172,11 @@
                                         <rect key="frame" x="0.0" y="318" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJt-0F-sfp" id="AF8-ad-AwU">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an exciting and fun description of your dish. Isn't it yummy?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d2e-UG-sDZ">
-                                                    <rect key="frame" x="12" y="0.0" width="350" height="43.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an exciting and fun description of your dish. Isn't it yummy??" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d2e-UG-sDZ">
+                                                    <rect key="frame" x="12" y="0.0" width="439" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -202,11 +190,7 @@
                                         <rect key="frame" x="0.0" y="378" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nDV-Nd-S5o" id="WUC-mM-SFM">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="circleBorder" id="07z-om-kwa">
@@ -267,36 +251,11 @@
                                             <outlet property="servingSizeLabel" destination="FUb-Fq-3ID" id="g6r-ws-sxP"/>
                                         </connections>
                                     </tableViewCell>
-<<<<<<< HEAD
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IngredientsHeaderCell" rowHeight="51" id="bIi-1x-diq" customClass="IngredientsHeaderCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="457" width="375" height="51"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bIi-1x-diq" id="1M9-HS-qWH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kq9-bx-ogf">
-                                                    <rect key="frame" x="12" y="21" width="350" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IngredientsCell" rowHeight="43" id="Wsv-Ph-mVc" customClass="IngredientsCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="508" width="375" height="43"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wsv-Ph-mVc" id="lKe-de-usI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
-=======
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IngredientsCell" rowHeight="25" id="Wsv-Ph-mVc" customClass="IngredientsCell" customModule="RecipeBuilder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="418" width="375" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wsv-Ph-mVc" id="lKe-de-usI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="24.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uEa-cB-h6c">
@@ -312,36 +271,11 @@
                                             <outlet property="ingredientsLabel" destination="uEa-cB-h6c" id="ISA-rk-C4T"/>
                                         </connections>
                                     </tableViewCell>
-<<<<<<< HEAD
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DirectionsHeaderCell" rowHeight="51" id="Egs-jd-fc7" customClass="DirectionsHeaderCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="551" width="375" height="51"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Egs-jd-fc7" id="coL-j2-xv7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Vc-rI-7J4">
-                                                    <rect key="frame" x="12" y="22" width="350" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DirectionsCell" rowHeight="43" id="Mpq-Jl-xNc" customClass="DirectionsCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="602" width="375" height="43"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mpq-Jl-xNc" id="gpC-yX-XtT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
-=======
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DirectionsCell" rowHeight="60" id="Mpq-Jl-xNc" customClass="DirectionsCell" customModule="RecipeBuilder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="443" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mpq-Jl-xNc" id="gpC-yX-XtT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
->>>>>>> origin/master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SxV-T7-4Qe">

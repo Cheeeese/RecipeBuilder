@@ -11,6 +11,8 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var nameLabel = "Sweet Potato Hash"
     var ingredientsArray = ["2 boneless, skinless chicken thighs", "1 medium sweet potato", "1/2 cup onion", "2 teaspoons Cajun seasoning", "pinch of salt", "olive oil", "fried egg"]
     
     override func viewDidLoad() {

@@ -26,6 +26,7 @@ class ShoppingItemCell: UITableViewCell {
     var leftIconsStaticCenter: CGPoint!
     var rightIconsStaticCenter: CGPoint!
     
+    
     // Defining initial sets of colors for changing swipe colors
     let grayColor = UIColor(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, alpha: 1.0)
     let yellowColor = UIColor(red: 249.0/255.0, green: 212.0/255.0, blue: 51.0/255.0, alpha: 1.0)
@@ -76,6 +77,19 @@ class ShoppingItemCell: UITableViewCell {
             self.shoppingItemView.backgroundColor = self.greenColor
         }
     }
+    
+    func resetItems() {
+        archiveIconView.center = leftIconsStaticCenter
+        deleteIconView.center = leftIconsStaticCenter
+        
+    }
+    
+    func iconsFollowPan() {
+    
+        archiveIconView.center = CGPoint(x: shoppingItemView.center.x - 180.0, y: archiveIconOriginalCenter.y)
+        deleteIconView.center = CGPoint(x: shoppingItemView.center.x - 180.0, y: deleteIconOriginalCenter.y)
+        
+    }
 
     
     
@@ -101,8 +115,7 @@ class ShoppingItemCell: UITableViewCell {
             print("Gesture changed at: \(point)")
             
             shoppingItemView.center = CGPoint(x: shoppingItemOriginalCenter.x + translation.x, y: shoppingItemOriginalCenter.y)
-            //
-            //            iconsFollowPan()
+//            iconsFollowPan()
             
             
             
@@ -114,7 +127,7 @@ class ShoppingItemCell: UITableViewCell {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
 
                     self.shoppingItemView.center = self.shoppingItemStaticRight
-//                    self.iconsFollowPan()
+                    self.iconsFollowPan()
 
                     }, completion: { (Bool) -> Void in
 
@@ -134,7 +147,7 @@ class ShoppingItemCell: UITableViewCell {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
 
                     self.shoppingItemView.center = self.shoppingItemStaticLeft
-//                    self.iconsFollowPan()
+                    self.iconsFollowPan()
 
                     }, completion: { (Bool) -> Void in
 
@@ -172,7 +185,6 @@ class ShoppingItemCell: UITableViewCell {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     
                     self.shoppingItemView.center = self.shoppingItemStaticCenter
-//                    self.iconsFollowPan()
                     
                     }, completion: { (Bool) -> Void in
 //                        self.resetItemsPlacement()

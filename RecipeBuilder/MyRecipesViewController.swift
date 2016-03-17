@@ -11,13 +11,10 @@ import UIKit
 class MyRecipesViewController: UIViewController {
     
     //outlets
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var homeFeed: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.contentSize = homeFeed.image!.size
     }
 
     override func didReceiveMemoryWarning() {

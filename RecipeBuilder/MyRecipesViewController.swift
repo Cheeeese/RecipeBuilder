@@ -8,13 +8,26 @@
 
 import UIKit
 
-class MyRecipesViewController: UIViewController {
+class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //outlets
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let recipeCardCell = tableView.dequeueReusableCellWithIdentifier("RecipeCardCell") as! RecipeCardCell
+        return recipeCardCell
     }
 
     override func didReceiveMemoryWarning() {

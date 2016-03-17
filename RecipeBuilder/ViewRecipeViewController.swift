@@ -22,7 +22,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    
     }
+    
+
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // photos, deatils
@@ -156,12 +159,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    @IBAction func didTapBack(sender: AnyObject) {
+        self.navigationController!.popToRootViewControllerAnimated(true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

@@ -23,6 +23,7 @@
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -708,18 +709,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Write a short description of your recipe." textAlignment="natural" minimumFontSize="17" id="6ze-DY-o8U">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a short description of your recipe. ;slk ds;kfd ;lsdkf ;sldkf s; s;ldkf;ssdfk   ;sldkf;sld ;lk s;d" textAlignment="natural" id="mYo-G4-YPn">
                                                     <rect key="frame" x="17" y="47" width="340" height="79"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94901960780000005" green="0.96470588239999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionInputLabel" destination="qk5-HP-zq9" id="w1k-rZ-c74"/>
-                                            <outlet property="descriptionInputTextField" destination="6ze-DY-o8U" id="ghr-Fa-xFG"/>
+                                            <outlet property="descriptionInputTextView" destination="mYo-G4-YPn" id="K7s-yV-43A"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

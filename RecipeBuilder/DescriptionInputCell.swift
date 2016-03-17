@@ -11,7 +11,7 @@ import UIKit
 class DescriptionInputCell: UITableViewCell {
     
     @IBOutlet weak var descriptionInputLabel: UILabel!
-    @IBOutlet weak var descriptionInputTextField: UITextField!
+    @IBOutlet weak var descriptionInputTextView: UITextView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

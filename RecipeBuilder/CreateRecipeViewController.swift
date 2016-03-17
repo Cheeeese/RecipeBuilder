@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
 
     @IBOutlet weak var recipeInputTableView: UITableView!
     
@@ -16,6 +16,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var selectedImage: UIImageView!
     var addImageBtn: UIButton!
     var categoryInputTextField: UITextField!
+    var descriptionInputTextView: UITextView!
     
     var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
     var picker = UIPickerView()
@@ -55,6 +56,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         return 4
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
@@ -64,7 +69,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             addImageBtn = recipeImageInputCell.addImageBtn
             
             return recipeImageInputCell
-        
+            
         } else if indexPath.row == 1  {
             let titleInputCell = tableView.dequeueReusableCellWithIdentifier("TitleInputCell") as! TitleInputCell
             return titleInputCell
@@ -80,20 +85,30 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         } else {
             let descriptionInputCell = tableView.dequeueReusableCellWithIdentifier("DescriptionInputCell") as! DescriptionInputCell
             
-            return descriptionInputCell
+            descriptionInputTextView = descriptionInputCell.descriptionInputTextView
+            //descriptionInputCell.descriptionInputTextView.frame.size.width = descriptionInputTextView.frame.size.width
             
+            descriptionInputCell.descriptionInputTextView.delegate = self
+            
+//            expandTextView()
+            
+            return descriptionInputCell
         }
-        
     }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         if indexPath.row == 0 {
             return 160
         } else if indexPath.row == 1 || indexPath.row == 2 {
             
             return 50
         } else {
-            return 145
+            if descriptionInputTextView == nil {
+                return 165
+            } else {
+                return descriptionInputTextView.frame.height + 66
+            }
         }
     }
     
@@ -169,6 +184,34 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         return true;
     }
     
+    //Expanding TextView
+    func expandTextView () {
+        
+        let fixedWidth = descriptionInputTextView.frame.size.width
+        descriptionInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = descriptionInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = descriptionInputTextView.frame
+        
+        let height = max(newSize.height + 5, 79)
+        
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: height)
+        descriptionInputTextView.frame = newFrame
+        
+        descriptionInputTextView.scrollEnabled = false
+        
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        expandTextView()
+        
+        var height = max(descriptionInputTextView.frame.height + 66, 165)
+        //print("height: \(height)")
+        
+        recipeInputTableView.beginUpdates()
+        recipeInputTableView.endUpdates()
+        
+//        recipeInputTableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 3, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
     
 
     /*

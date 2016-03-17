@@ -21,6 +21,7 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -29,6 +30,8 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         let recipeCardCell = tableView.dequeueReusableCellWithIdentifier("RecipeCardCell") as! RecipeCardCell
         return recipeCardCell
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

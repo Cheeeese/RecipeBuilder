@@ -53,7 +53,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,7 +82,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             return categoryInputCell
             
-        } else {
+        } else if indexPath.row == 3 {
             let descriptionInputCell = tableView.dequeueReusableCellWithIdentifier("DescriptionInputCell") as! DescriptionInputCell
             
             descriptionInputTextView = descriptionInputCell.descriptionInputTextView
@@ -93,6 +93,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
 //            expandTextView()
             
             return descriptionInputCell
+        } else {
+            let servingsInputCell = tableView.dequeueReusableCellWithIdentifier("ServingsInputCell") as! ServingsInputCell
+            return servingsInputCell
         }
     }
 
@@ -103,12 +106,14 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         } else if indexPath.row == 1 || indexPath.row == 2 {
             
             return 50
-        } else {
+        } else if indexPath.row == 3 {
             if descriptionInputTextView == nil {
-                return 165
+                return 145
             } else {
-                return descriptionInputTextView.frame.height + 66
+                return descriptionInputTextView.frame.height + 44
             }
+        } else {
+           return 50 
         }
     }
     

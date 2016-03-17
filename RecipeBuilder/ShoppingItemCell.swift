@@ -26,6 +26,7 @@ class ShoppingItemCell: UITableViewCell {
     var leftIconsStaticCenter: CGPoint!
     var rightIconsStaticCenter: CGPoint!
     
+    
     // Defining initial sets of colors for changing swipe colors
     let grayColor = UIColor(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, alpha: 1.0)
     let yellowColor = UIColor(red: 249.0/255.0, green: 212.0/255.0, blue: 51.0/255.0, alpha: 1.0)

@@ -38,6 +38,7 @@
 		B523B02B1C9623F000FC5BFD /* TitleInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02A1C9623F000FC5BFD /* TitleInputCell.swift */; };
 		B523B02D1C96240700FC5BFD /* DescriptionInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */; };
 		B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */; };
+		B523B06B1C9A52B500FC5BFD /* ServingsInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B06A1C9A52B500FC5BFD /* ServingsInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		B523B02A1C9623F000FC5BFD /* TitleInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleInputCell.swift; sourceTree = "<group>"; };
 		B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionInputCell.swift; sourceTree = "<group>"; };
 		B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInputCell.swift; sourceTree = "<group>"; };
+		B523B06A1C9A52B500FC5BFD /* ServingsInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingsInputCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				B523B0281C96233600FC5BFD /* RecipeImageInputCell.swift */,
 				B523B02C1C96240700FC5BFD /* DescriptionInputCell.swift */,
 				B523B02E1C96241800FC5BFD /* CategoryInputCell.swift */,
+				B523B06A1C9A52B500FC5BFD /* ServingsInputCell.swift */,
 			);
 			name = CreateRecipeCells;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */,
 				8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */,
 				895C19B41C9A55C8008CA39C /* RecipeCardCell.swift in Sources */,
+				B523B06B1C9A52B500FC5BFD /* ServingsInputCell.swift in Sources */,
 				B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,
 				89186B611C95E01700669EEB /* RecipeImageCell.swift in Sources */,

@@ -108,9 +108,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             return 50
         } else if indexPath.row == 3 {
             if descriptionInputTextView == nil {
-                return 165
+                return 145
             } else {
-                return descriptionInputTextView.frame.height + 66
+                return descriptionInputTextView.frame.height + 44
             }
         } else {
            return 50 

@@ -34,6 +34,7 @@ class ShoppingItemCell: UITableViewCell {
     let greenColor = UIColor(red: 113.0/255.0, green: 217.0/255.0, blue: 98.0/255.0, alpha: 1.0)
     let redColor = UIColor(red: 233.0/255.0, green: 83.0/255.0, blue: 52.0/255.0, alpha: 1.0)
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+    let whiteColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     
     var shoppingListViewController: ShoppingListViewController!
     var cellIndexPath: NSIndexPath!
@@ -61,6 +62,7 @@ class ShoppingItemCell: UITableViewCell {
         shoppingItemView.userInteractionEnabled = true
         shoppingItemView.addGestureRecognizer(panGestureRecognizer)
         
+        panGestureRecognizer.delegate = self
 
         shoppingItemOriginalCenter = shoppingItemView.center
     }
@@ -74,7 +76,7 @@ class ShoppingItemCell: UITableViewCell {
     func reset() {
         if self.shoppingItemView != nil {
             self.shoppingItemView.center = self.shoppingItemOriginalCenter
-            self.shoppingItemView.backgroundColor = self.greenColor
+            self.shoppingItemView.backgroundColor = self.whiteColor
         }
     }
     
@@ -196,6 +198,16 @@ class ShoppingItemCell: UITableViewCell {
         }
     }
     
-
+    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let panGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer
+        
+        let velocity = panGestureRecognizer.velocityInView(self)
+        
+        if abs(velocity.x) > abs(velocity.y) {
+            return true
+        } else {
+            return false
+        }
+    }
 
 }

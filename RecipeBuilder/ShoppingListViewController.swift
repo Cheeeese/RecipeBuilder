@@ -24,6 +24,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         
         shoppingListTableView.delegate = self
         shoppingListTableView.dataSource = self
+        shoppingListTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
 //        shoppingListTableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: CellIdentifier)
         
@@ -34,12 +35,12 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            shoppingList.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            shoppingList.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//        }
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -57,7 +58,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         
         cell.shoppingItemLabel.text = shoppingList[indexPath.row]
         if shoppingListChecked[indexPath.row] == 0 {
-            cell.shoppingItemView.backgroundColor = UIColor(red: 113.0/255.0, green: 217.0/255.0, blue: 98.0/255.0, alpha: 1.0)
+            cell.shoppingItemView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         } else {
             cell.shoppingItemView.backgroundColor = UIColor(red: 249.0/255.0, green: 212.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         }

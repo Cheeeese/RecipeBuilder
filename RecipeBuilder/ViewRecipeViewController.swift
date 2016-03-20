@@ -25,11 +25,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        print(recipeObject["title"])
-        
-        
-    
     }
     
 
@@ -64,6 +59,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             }
             else if indexPath.row == 1 {
                 let categoryCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
+                categoryCell.categoryLabel.text = recipeObject["category"] as? String
                 return categoryCell
             }
             else if indexPath.row == 2 {
@@ -73,10 +69,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             }
             else if indexPath.row == 3 {
                 let descriptionCell = tableView.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionCell
+                descriptionCell.descriptionLabel.text = recipeObject["description"] as? String
                 return descriptionCell
             }
             else {
                 let detailsCell = tableView.dequeueReusableCellWithIdentifier("DetailsCell") as! DetailsCell
+                detailsCell.servingSizeLabel.text = recipeObject["serving"] as? String
+                detailsCell.cookTimeLabel.text = recipeObject["cook_time"] as? String
+                detailsCell.prepTimeLabel.text = recipeObject["prep_time"] as? String
                 return detailsCell
             }
         }

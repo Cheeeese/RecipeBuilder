@@ -10,6 +10,13 @@ import UIKit
 
 class RecipeCardCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+
+    // MV Added Below
+    var myRecipesViewController: MyRecipesViewController!
+    var cellIndexPath: NSIndexPath!
+    // MV Added Above
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

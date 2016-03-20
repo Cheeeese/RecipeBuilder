@@ -9,7 +9,9 @@
 import Parse
 import UIKit
 
-class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
+    
+    var recipes: [PFObject]! = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,16 +23,32 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        var query = PFQuery(className: "Recipe")
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            self.recipes = results as [PFObject]!
+            self.tableView.reloadData()
+        }
         
     }
     
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return recipes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let recipeCardCell = tableView.dequeueReusableCellWithIdentifier("RecipeCardCell") as! RecipeCardCell
+        
+        // MV Added Below
+        recipeCardCell.myRecipesViewController = self
+        recipeCardCell.cellIndexPath = indexPath
+        // MV Added Above
+        
+        let recipe = recipes[indexPath.row]
+        
+        recipeCardCell.nameLabel.text = recipe["title"] as? String
+        
         return recipeCardCell
     }
     
@@ -42,14 +60,14 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let viewRecipeViewController = segue.destinationViewController as! ViewRecipeViewController
+        
+        viewRecipeViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+       // viewRecipeViewController.transitioningDelegate = FadeTransition
+        
+//        viewRecipeViewController.recipeObject = sender as! PFObject
     }
-    */
-
 }

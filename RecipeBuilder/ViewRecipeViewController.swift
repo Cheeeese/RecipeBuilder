@@ -6,11 +6,15 @@
 //  Copyright © 2016 Cheeeese. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var recipes: [PFObject]! = []
+    var recipeObject: PFObject!
     
     var nameLabel = "Sweet Potato Hash"
     var ingredientsArray = ["2 boneless, skinless chicken thighs", "1 medium sweet potato", "1/2 cup onion", "2 teaspoons Cajun seasoning", "pinch of salt", "olive oil", "fried egg"]
@@ -22,6 +26,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        
     
     }
     

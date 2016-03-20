@@ -28,6 +28,8 @@
 		8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4031C8CE31F00E5CC0C /* ShoppingListViewController.swift */; };
 		8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4051C8CE32F00E5CC0C /* CreateRecipeViewController.swift */; };
 		8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */; };
+		8928BED81C9E29A6000121C5 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8928BED61C9E29A6000121C5 /* FadeTransition.swift */; };
+		8928BED91C9E29A6000121C5 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8928BED71C9E29A6000121C5 /* BaseTransition.swift */; };
 		894356DE1C962162009226A4 /* DirectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894356DD1C962162009226A4 /* DirectionsCell.swift */; };
 		895C19B41C9A55C8008CA39C /* RecipeCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C19B31C9A55C8008CA39C /* RecipeCardCell.swift */; };
 		899CD5561C95D3C000B6B2C6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CD5551C95D3C000B6B2C6 /* CategoryCell.swift */; };
@@ -98,6 +100,8 @@
 		8923C4031C8CE31F00E5CC0C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		8923C4051C8CE32F00E5CC0C /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 		8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		8928BED61C9E29A6000121C5 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		8928BED71C9E29A6000121C5 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
 		894356DD1C962162009226A4 /* DirectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsCell.swift; sourceTree = "<group>"; };
 		895C19B31C9A55C8008CA39C /* RecipeCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCardCell.swift; sourceTree = "<group>"; };
 		899CD5551C95D3C000B6B2C6 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				44825A391C8B99B100836493 /* Assets.xcassets */,
 				44825A3B1C8B99B100836493 /* LaunchScreen.storyboard */,
 				44825A3E1C8B99B100836493 /* Info.plist */,
+				8928BED61C9E29A6000121C5 /* FadeTransition.swift */,
+				8928BED71C9E29A6000121C5 /* BaseTransition.swift */,
 			);
 			path = RecipeBuilder;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C4FC621C9533B300C7706F /* TempShoppingListViewController.swift in Sources */,
+				8928BED81C9E29A6000121C5 /* FadeTransition.swift in Sources */,
 				899CD5581C95D51F00B6B2C6 /* TitleCell.swift in Sources */,
 				B523B0291C96233600FC5BFD /* RecipeImageInputCell.swift in Sources */,
 				B523B02B1C9623F000FC5BFD /* TitleInputCell.swift in Sources */,
@@ -475,6 +482,7 @@
 				895C19B41C9A55C8008CA39C /* RecipeCardCell.swift in Sources */,
 				B523B0B51C9DC62400FC5BFD /* DirectionsTitleCell.swift in Sources */,
 				B523B0B31C9DC40500FC5BFD /* AddIngredientsCell.swift in Sources */,
+				8928BED91C9E29A6000121C5 /* BaseTransition.swift in Sources */,
 				B523B06B1C9A52B500FC5BFD /* ServingsInputCell.swift in Sources */,
 				B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,

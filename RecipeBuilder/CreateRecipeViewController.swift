@@ -24,7 +24,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var prepTimeTextField: UITextField!
     var cookTimeTextField: UITextField!
     
-    
+    var ingredientsArray: [String]! = []
     
     var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
     var picker = UIPickerView()
@@ -64,7 +64,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         if section == 0 {
           return 7
         } else if section == 1 {
-            return 1
+            return 2
         } else if section == 2 {
             return 1
         } else {
@@ -145,6 +145,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             ingredientsInputTextView = ingredientsInputCell.ingredientsInputTextView
             ingredientsInputCell.ingredientsInputTextView.delegate = self
+            
+ //           ingredientsArray[indexPath.row] = ingredientsInputCell.ingredientsInputTextView.text
             
             return ingredientsInputCell
         
@@ -445,6 +447,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     //Save recipe by sending data to server
     @IBAction func didTapSave(sender: UIButton) {
         
+        recipeInputTableView.reloadData()
+        
         var recipe = PFObject(className: "Recipe")
         
         recipe["user"] = PFUser.currentUser()
@@ -457,16 +461,27 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+           
+        }
+        
+        
+       for index in 0...1 {
+        
+            var ingredients = PFObject(className: "Ingredients")
+            ingredients["name"] = ingredientsInputTextView.text
+        
+            ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                
+            }
+        
+        print(ingredients["name"])
+        
+       }
+        
+        
+        
 
-        }
         
-        var ingredients = PFObject(className: "Ingredients")
-        ingredients["name"] = ingredientsInputTextView.text
-  //      ingredients["recipeId"] = recipe.objectId
-        
-        ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print(ingredients["name"])
-        }
         
 //        performSegueWithIdentifier("SaveRecipe", sender: nil)
         

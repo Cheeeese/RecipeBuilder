@@ -57,7 +57,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             
         // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
-            return ingredients.count
+            return 2
         }
             
         // this is how many rows you want of directions (directions is section 2)

@@ -8,10 +8,17 @@
 
 import UIKit
 
-class TimersViewController: UIViewController {
+class TimersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var timersTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timersTableView.delegate = self
+        timersTableView.dataSource = self
+//        timersTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +28,33 @@ class TimersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        print("Number of Rows: \(indexPath.row)")
+        
+        var cell = timersTableView.dequeueReusableCellWithIdentifier("TimerCell", forIndexPath: indexPath) as! TimerCell
+        
+        cell.timersViewController = self
+        cell.cellIndexPath = indexPath
+
+        cell.initialTime = 10
+//        cell.timerTimeLabel.text = cell.displayTimeAsString(10)
+        cell.onTimer(cell.timer)
+        cell.timerRecipeLabel.text = "Test Recipe"
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Tapped \(indexPath.row)")
+    }
+
 
     /*
     // MARK: - Navigation

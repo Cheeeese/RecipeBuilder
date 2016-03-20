@@ -6,6 +6,7 @@
 //  Copyright © 2016 Cheeeese. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
@@ -19,6 +20,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var descriptionInputTextView: UITextView!
     var ingredientsInputTextView: UITextView!
     var directionsInputTextView: UITextView!
+    var titleInputTextField: UITextField!
+    var prepTimeTextField: UITextField!
+    var cookTimeTextField: UITextField!
+    
+    
     
     var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
     var picker = UIPickerView()
@@ -84,6 +90,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
                 
             } else if indexPath.row == 1  {
                 let titleInputCell = tableView.dequeueReusableCellWithIdentifier("TitleInputCell") as! TitleInputCell
+                
+                
+                titleInputTextField = titleInputCell.titleInputTextField
+                
+                
                 return titleInputCell
                 
             } else if indexPath.row == 2 {
@@ -114,10 +125,14 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             } else if indexPath.row == 5 {
                 let prepTimeInputCell = tableView.dequeueReusableCellWithIdentifier("PrepTimeInputCell") as! PrepTimeInputCell
                 
+                prepTimeTextField = prepTimeInputCell.prepTimeTextField
+                
                 return prepTimeInputCell
                 
             } else {
                 let cookTimeInputCell = tableView.dequeueReusableCellWithIdentifier("CookTimeInputCell") as! CookTimeInputCell
+                
+                cookTimeTextField = cookTimeInputCell.cookTimeTextField
                 
                 return cookTimeInputCell
                 
@@ -380,6 +395,28 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipeInputTableView.endUpdates()
         
     }
+    
+    
+    @IBAction func didTapSave(sender: UIButton) {
+        
+        var recipe = PFObject(className: "Recipe")
+        
+        recipe["user"] = PFUser.currentUser()
+        recipe["image"] = selectedImage.image
+        recipe["title"] = titleInputTextField.text
+        recipe["description"] = descriptionInputTextView.text
+        recipe["category"] = categoryInputTextField.text
+        recipe["prep_time"] = prepTimeTextField.text
+        recipe["cook_time"] = cookTimeTextField.text
+        
+        
+        recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Saved")
+        }
+        
+        
+    }
+    
     
     
     

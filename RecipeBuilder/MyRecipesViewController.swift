@@ -6,6 +6,7 @@
 //  Copyright © 2016 Cheeeese. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,6 +20,8 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        
     }
     
     

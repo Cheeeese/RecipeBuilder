@@ -48,6 +48,7 @@
 		B523B0B31C9DC40500FC5BFD /* AddIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B21C9DC40500FC5BFD /* AddIngredientsCell.swift */; };
 		B523B0B51C9DC62400FC5BFD /* DirectionsTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B41C9DC62400FC5BFD /* DirectionsTitleCell.swift */; };
 		B523B0B71C9DC62F00FC5BFD /* AddStepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B61C9DC62F00FC5BFD /* AddStepsCell.swift */; };
+		B523B0B91C9E151300FC5BFD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B81C9E151300FC5BFD /* LoginViewController.swift */; };
 		CC6928633E88CA17112FA911 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E195576FB011CDE499D4D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		B523B0B21C9DC40500FC5BFD /* AddIngredientsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredientsCell.swift; sourceTree = "<group>"; };
 		B523B0B41C9DC62400FC5BFD /* DirectionsTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsTitleCell.swift; sourceTree = "<group>"; };
 		B523B0B61C9DC62F00FC5BFD /* AddStepsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStepsCell.swift; sourceTree = "<group>"; };
+		B523B0B81C9E151300FC5BFD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5AA2847F97A76E9219582CA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F48E195576FB011CDE499D4D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				89186B501C95DCFA00669EEB /* ViewRecipeFiles */,
 				B523B0271C961F8500FC5BFD /* CreateRecipeCells */,
 				44825A341C8B99B100836493 /* ViewController.swift */,
+				B523B0B81C9E151300FC5BFD /* LoginViewController.swift */,
 				44C4FC611C9533B300C7706F /* TempShoppingListViewController.swift */,
 				8923C4071C8CE33800E5CC0C /* ContainerViewController.swift */,
 				8923C4051C8CE32F00E5CC0C /* CreateRecipeViewController.swift */,
@@ -490,6 +493,7 @@
 				B523B0A91C9D46CE00FC5BFD /* CookTimeInputCell.swift in Sources */,
 				44825A331C8B99B100836493 /* AppDelegate.swift in Sources */,
 				B523B0AB1C9D48BA00FC5BFD /* IngredientsInputCell.swift in Sources */,
+				B523B0B91C9E151300FC5BFD /* LoginViewController.swift in Sources */,
 				B523B02D1C96240700FC5BFD /* DescriptionInputCell.swift in Sources */,
 				89186B5F1C95DFAF00669EEB /* IngredientsCell.swift in Sources */,
 				899CD5561C95D3C000B6B2C6 /* CategoryCell.swift in Sources */,

@@ -39,11 +39,13 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         if section == 0 {
             return 5
         }
-        // ingredients
+            
+        // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
             return ingredientsArray.count
         }
-        // directions
+            
+        // this is how many rows you want of directions (directions is section 2)
         else {
             return 4
         }
@@ -79,6 +81,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         
+        // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
             ingredientsCell.ingredientsLabel.text = ingredientsArray[indexPath.row]
@@ -86,6 +89,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             return ingredientsCell
         }
         
+        //directions section
         else {
             let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
             return directionsCell
@@ -93,9 +97,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
 
     }
     
-    //headers
+    //headers go here
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        // ingredients is section 1 so set here for section 1 here
         if section == 1 {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
             let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
@@ -105,7 +110,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             headerView.addSubview(label)
             return headerView
         }
-        
+            
+        // directions is section 2 so set here for section 2 here
         else if section == 2 {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
             let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
@@ -120,7 +126,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             return nil
         }
     }
-
+    
+    // set heights for headers
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0

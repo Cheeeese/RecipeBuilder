@@ -411,8 +411,15 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Saved")
-            print(recipe["user"])
+
+        }
+        
+        var ingredients = PFObject(className: "Ingredients")
+        ingredients["name"] = ingredientsInputTextView.text
+  //      ingredients["recipeId"] = recipe.objectId
+        
+        ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print(ingredients["name"])
         }
         
         

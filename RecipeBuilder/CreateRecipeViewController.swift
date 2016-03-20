@@ -214,8 +214,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         // ingredients is section 1 so set here for section 1 here
         if section == 1 {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 10))
-            let addIngredientBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 20))
+            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 15))
+            let addIngredientBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 15))
             addIngredientBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
             addIngredientBtn.setTitle("+ Add another ingredient", forState: UIControlState.Normal)
             addIngredientBtn.titleLabel!.font = UIFont(name: "SFUIText-Regular", size: 13)
@@ -227,8 +227,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             // directions is section 2 so set here for section 2 here
         else if section == 2 {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 10))
-            let addStepBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 20))
+            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 15))
+            let addStepBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 15))
             addStepBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
             addStepBtn.setTitle("+ Add another step", forState: UIControlState.Normal)
             addStepBtn.titleLabel!.font = UIFont(name: "SFUIText-Regular", size: 13)
@@ -249,7 +249,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             return 0
         }
         else {
-            return 40
+            return 15
         }
     }
 
@@ -282,7 +282,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         } else if indexPath.section == 1 {
             
             //Defining the height when INGREDIENTS has no text and when it has. Basically expanding textview height implementation
-            
+
             if ingredientsInputTextView == nil {
                 return 72
             } else {
@@ -468,7 +468,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             print(ingredients["name"])
         }
         
-        performSegueWithIdentifier("SaveRecipe", sender: nil)
+//        performSegueWithIdentifier("SaveRecipe", sender: nil)
+        
+        // for some reason does not update the myRecipesViewController
+        dismissViewControllerAnimated(true, completion: nil)
         
         
     }

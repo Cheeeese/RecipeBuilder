@@ -40,10 +40,6 @@
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -785,35 +781,15 @@
                                             <outlet property="cookTimeTextField" destination="FXj-OG-2D6" id="7Y1-3A-vi5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsTitleCell" rowHeight="35" id="bq2-9d-HEG" customClass="IngredientsTitleCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="583" width="375" height="35"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bq2-9d-HEG" id="6I9-5A-w3d">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="erU-wa-HNm">
-                                                    <rect key="frame" x="17" y="8" width="108" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
-                                                    <color key="textColor" red="0.16078431369999999" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="ingredientsTitleLabel" destination="erU-wa-HNm" id="pk7-mW-p82"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsInputCell" rowHeight="55" id="9po-iS-VBZ" customClass="IngredientsInputCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="618" width="375" height="55"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsInputCell" rowHeight="72" id="9po-iS-VBZ" customClass="IngredientsInputCell" customModule="RecipeBuilder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="583" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9po-iS-VBZ" id="ncI-5h-WH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add ingredients" textAlignment="natural" id="h6U-BA-acg">
-                                                    <rect key="frame" x="17" y="0.0" width="341" height="55"/>
+                                                    <rect key="frame" x="17" y="8" width="341" height="54.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
@@ -822,52 +798,18 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ingredientsInputTextView" destination="h6U-BA-acg" id="U2A-S1-PXF"/>
+                                            <outlet property="ingredientsInputTextView" destination="h6U-BA-acg" id="oAN-em-98J"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddIngredientsCell" rowHeight="40" id="0Ks-dv-JMV" customClass="AddIngredientsCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="673" width="375" height="40"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ks-dv-JMV" id="cJD-8z-G6I">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SZh-eP-u2J">
-                                                    <rect key="frame" x="8" y="0.0" width="171" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                                    <color key="tintColor" red="0.2901960784" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="+ Add another ingredient"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectionsTitleCell" rowHeight="35" id="Yyb-QZ-EQR" customClass="DirectionsTitleCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="713" width="375" height="35"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yyb-QZ-EQR" id="3DD-Bw-2jg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v4a-wp-pjp">
-                                                    <rect key="frame" x="17" y="7" width="146" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
-                                                    <color key="textColor" red="0.16078431369999999" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectionsInputCell" rowHeight="75" id="xJB-od-svE" customClass="DirectionsInputCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="748" width="375" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectionsInputCell" rowHeight="92" id="xJB-od-svE" customClass="DirectionsInputCell" customModule="RecipeBuilder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="655" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJB-od-svE" id="Wtj-V2-a3u">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1. Add a step." textAlignment="natural" id="Ffe-nw-J0G">
-                                                    <rect key="frame" x="17" y="0.0" width="341" height="74.5"/>
+                                                    <rect key="frame" x="17" y="8" width="341" height="74.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
@@ -876,31 +818,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="directionsInputTextView" destination="Ffe-nw-J0G" id="Rdw-kW-sHY"/>
+                                            <outlet property="directionsInputTextView" destination="Ffe-nw-J0G" id="UtQ-tX-ffG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddStepsCell" rowHeight="75" id="inX-Ag-mZc" customClass="AddStepsCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="823" width="375" height="75"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="inX-Ag-mZc" id="v7a-W0-33q">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fzi-Zn-Hpj">
-                                                    <rect key="frame" x="8" y="0.0" width="171" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                                    <color key="tintColor" red="0.2901960784" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="+ Add another step"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaveButtonCell" rowHeight="110" id="hYd-fS-fOx" customClass="SaveButtonCell" customModule="RecipeBuilder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="898" width="375" height="110"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaveButtonCell" rowHeight="99" id="hYd-fS-fOx" customClass="SaveButtonCell" customModule="RecipeBuilder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="747" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hYd-fS-fOx" id="iz0-1H-j2X">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="06K-bu-LtD">

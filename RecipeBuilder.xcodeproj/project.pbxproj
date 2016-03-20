@@ -46,10 +46,6 @@
 		B523B0AB1C9D48BA00FC5BFD /* IngredientsInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0AA1C9D48BA00FC5BFD /* IngredientsInputCell.swift */; };
 		B523B0AD1C9D55BB00FC5BFD /* SaveButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0AC1C9D55BB00FC5BFD /* SaveButtonCell.swift */; };
 		B523B0AF1C9D56C500FC5BFD /* DirectionsInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0AE1C9D56C500FC5BFD /* DirectionsInputCell.swift */; };
-		B523B0B11C9DC3E100FC5BFD /* IngredientsTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B01C9DC3E100FC5BFD /* IngredientsTitleCell.swift */; };
-		B523B0B31C9DC40500FC5BFD /* AddIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B21C9DC40500FC5BFD /* AddIngredientsCell.swift */; };
-		B523B0B51C9DC62400FC5BFD /* DirectionsTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B41C9DC62400FC5BFD /* DirectionsTitleCell.swift */; };
-		B523B0B71C9DC62F00FC5BFD /* AddStepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B61C9DC62F00FC5BFD /* AddStepsCell.swift */; };
 		B523B0B91C9E151300FC5BFD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523B0B81C9E151300FC5BFD /* LoginViewController.swift */; };
 		CC6928633E88CA17112FA911 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E195576FB011CDE499D4D /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -118,10 +114,6 @@
 		B523B0AA1C9D48BA00FC5BFD /* IngredientsInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsInputCell.swift; sourceTree = "<group>"; };
 		B523B0AC1C9D55BB00FC5BFD /* SaveButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveButtonCell.swift; sourceTree = "<group>"; };
 		B523B0AE1C9D56C500FC5BFD /* DirectionsInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsInputCell.swift; sourceTree = "<group>"; };
-		B523B0B01C9DC3E100FC5BFD /* IngredientsTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTitleCell.swift; sourceTree = "<group>"; };
-		B523B0B21C9DC40500FC5BFD /* AddIngredientsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredientsCell.swift; sourceTree = "<group>"; };
-		B523B0B41C9DC62400FC5BFD /* DirectionsTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsTitleCell.swift; sourceTree = "<group>"; };
-		B523B0B61C9DC62F00FC5BFD /* AddStepsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStepsCell.swift; sourceTree = "<group>"; };
 		B523B0B81C9E151300FC5BFD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5AA2847F97A76E9219582CA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F48E195576FB011CDE499D4D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,12 +257,8 @@
 				B523B0A61C9D46BA00FC5BFD /* PrepTimeInputCell.swift */,
 				B523B0A81C9D46CE00FC5BFD /* CookTimeInputCell.swift */,
 				B523B0AC1C9D55BB00FC5BFD /* SaveButtonCell.swift */,
-				B523B0B01C9DC3E100FC5BFD /* IngredientsTitleCell.swift */,
 				B523B0AA1C9D48BA00FC5BFD /* IngredientsInputCell.swift */,
-				B523B0B21C9DC40500FC5BFD /* AddIngredientsCell.swift */,
-				B523B0B41C9DC62400FC5BFD /* DirectionsTitleCell.swift */,
 				B523B0AE1C9D56C500FC5BFD /* DirectionsInputCell.swift */,
-				B523B0B61C9DC62F00FC5BFD /* AddStepsCell.swift */,
 			);
 			name = CreateRecipeCells;
 			sourceTree = "<group>";
@@ -480,13 +468,10 @@
 				44825A611C8B9E3D00836493 /* TimersViewController.swift in Sources */,
 				8923C4081C8CE33800E5CC0C /* ContainerViewController.swift in Sources */,
 				895C19B41C9A55C8008CA39C /* RecipeCardCell.swift in Sources */,
-				B523B0B51C9DC62400FC5BFD /* DirectionsTitleCell.swift in Sources */,
-				B523B0B31C9DC40500FC5BFD /* AddIngredientsCell.swift in Sources */,
 				8928BED91C9E29A6000121C5 /* BaseTransition.swift in Sources */,
 				B523B06B1C9A52B500FC5BFD /* ServingsInputCell.swift in Sources */,
 				B523B02F1C96241800FC5BFD /* CategoryInputCell.swift in Sources */,
 				8923C4061C8CE32F00E5CC0C /* CreateRecipeViewController.swift in Sources */,
-				B523B0B11C9DC3E100FC5BFD /* IngredientsTitleCell.swift in Sources */,
 				89186B611C95E01700669EEB /* RecipeImageCell.swift in Sources */,
 				B523B0AD1C9D55BB00FC5BFD /* SaveButtonCell.swift in Sources */,
 				44C4FC641C95EE8A00C7706F /* ShoppingItemCell.swift in Sources */,
@@ -494,7 +479,6 @@
 				8923C4041C8CE31F00E5CC0C /* ShoppingListViewController.swift in Sources */,
 				44F995211C97B55100B26956 /* Common.swift in Sources */,
 				B523B0AF1C9D56C500FC5BFD /* DirectionsInputCell.swift in Sources */,
-				B523B0B71C9DC62F00FC5BFD /* AddStepsCell.swift in Sources */,
 				44825A351C8B99B100836493 /* ViewController.swift in Sources */,
 				899CD55A1C95DA1800B6B2C6 /* DescriptionCell.swift in Sources */,
 				890BD7961C95477500BB7E9C /* ViewRecipeViewController.swift in Sources */,

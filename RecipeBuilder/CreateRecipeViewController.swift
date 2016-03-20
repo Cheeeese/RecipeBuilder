@@ -402,7 +402,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         var recipe = PFObject(className: "Recipe")
         
         recipe["user"] = PFUser.currentUser()
-        recipe["image"] = selectedImage.image
+        //recipe["image"] = selectedImage.image
         recipe["title"] = titleInputTextField.text
         recipe["description"] = descriptionInputTextView.text
         recipe["category"] = categoryInputTextField.text
@@ -412,6 +412,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("Saved")
+            print(recipe["user"])
         }
         
         

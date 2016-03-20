@@ -13,10 +13,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
-    var recipes: [PFObject]! = []
     var recipeObject: PFObject!
+    var recipeId: String!
     
-    var nameLabel = "Sweet Potato Hash"
     var ingredientsArray = ["2 boneless, skinless chicken thighs", "1 medium sweet potato", "1/2 cup onion", "2 teaspoons Cajun seasoning", "pinch of salt", "olive oil", "fried egg"]
     
     override func viewDidLoad() {
@@ -26,6 +25,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        print(recipeObject["title"])
         
         
     
@@ -65,6 +66,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             }
             else if indexPath.row == 2 {
                 let titleCell = tableView.dequeueReusableCellWithIdentifier("TitleCell") as! TitleCell
+                titleCell.titleLabel.text = recipeObject["title"] as? String
                 return titleCell
             }
             else if indexPath.row == 3 {

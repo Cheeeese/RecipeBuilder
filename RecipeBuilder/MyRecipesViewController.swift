@@ -12,6 +12,8 @@ import UIKit
 class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
     
     var recipes: [PFObject]! = []
+//    var ingredients: [PFObject]! = []
+//    var directions: [PFObject]! = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,14 +26,13 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         var query = PFQuery(className: "Recipe")
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.recipes = results as [PFObject]!
             self.tableView.reloadData()
         }
         
     }
-    
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
@@ -63,11 +64,13 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let viewRecipeViewController = segue.destinationViewController as! ViewRecipeViewController
-        
-        viewRecipeViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-       // viewRecipeViewController.transitioningDelegate = FadeTransition
-        
-//        viewRecipeViewController.recipeObject = sender as! PFObject
+        if segue.identifier == "ViewRecipeSegue" {
+            let cellIndexRow = tableView.indexPathForSelectedRow?.row
+            
+            let viewRecipeViewController = segue.destinationViewController as! ViewRecipeViewController
+            let recipe = recipes[cellIndexRow!]
+            
+            viewRecipeViewController.recipeObject = recipe as! PFObject
+        }
     }
 }

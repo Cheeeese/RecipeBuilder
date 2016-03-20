@@ -333,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dO-8U-pNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433.5" y="1003.5"/>
+            <point key="canvasLocation" x="491.5" y="1607.5"/>
         </scene>
         <!--My Recipes View Controller-->
         <scene sceneID="3Oi-xA-O85">
@@ -401,7 +401,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="fhz-JR-rj3" id="At5-dT-7c6"/>
-                                            <segue destination="UGn-PR-ZPn" kind="push" id="d1I-4T-XTg"/>
+                                            <segue destination="UGn-PR-ZPn" kind="push" identifier="ViewRecipeSegue" id="d1I-4T-XTg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -423,7 +423,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="171.5" y="908.5"/>
+            <point key="canvasLocation" x="491.5" y="784.5"/>
         </scene>
         <!--Shopping List View Controller-->
         <scene sceneID="1JY-EP-SPB">
@@ -1062,7 +1062,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbZ-5e-wTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171.5" y="115.5"/>
+            <point key="canvasLocation" x="15.5" y="784.5"/>
         </scene>
     </scenes>
     <resources>

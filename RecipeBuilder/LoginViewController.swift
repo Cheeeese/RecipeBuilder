@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var iconImage: UIView!
     @IBOutlet weak var fieldsView: UIView!
@@ -70,32 +71,41 @@ class LoginViewController: UIViewController {
     
     @IBAction func didPressSignUp(sender: UIButton) {
         
-        var user = PFUser()
-        
-        user.username = usernameTextField.text
-        user.password = passwordTextField.text
-        
-        user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            if success {
-                self.performSegueWithIdentifier("LoginSegue", sender: nil)
-                print("Success")
-            } else {
-                print("Error: \(error)")
+        view.endEditing(true)
+        self.activityIndicator.startAnimating()
+        delay(1) { () -> () in
+            var user = PFUser()
+            
+            user.username = self.usernameTextField.text
+            user.password = self.passwordTextField.text
+            
+            user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                if success {
+                    self.performSegueWithIdentifier("LoginSegue", sender: nil)
+                    print("Success")
+                } else {
+                    print("Error: \(error)")
+                }
             }
         }
         
     }
 
     @IBAction func didPressSignIn(sender: UIButton) {
-        
-        PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordTextField.text!) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-               self.performSegueWithIdentifier("LoginSegue", sender: nil)
-            } else {
-                print("Error: \(error)")
+        view.endEditing(true)
+        self.activityIndicator.startAnimating()
+        delay(1) { () -> () in
+            PFUser.logInWithUsernameInBackground(self.usernameTextField.text!, password: self.passwordTextField.text!) {
+                (user: PFUser?, error: NSError?) -> Void in
+                if user != nil {
+                    self.performSegueWithIdentifier("LoginSegue", sender: nil)
+                } else {
+                    print("Error: \(error)")
+                }
             }
+
         }
+        
         
     }
     

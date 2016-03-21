@@ -12,7 +12,7 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var ingredients: [PFObject]! = []
     var directions: [PFObject]! = []
     
@@ -28,26 +28,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-     //   recipeObject = recipeObject.objectId
-//        
-//        var query = PFQuery(className: "Recipe")
-//        query.whereKey("user", equalTo: PFUser.currentUser()!)
-//        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
-//            self.recipes = results as [PFObject]!
-//            self.tableView.reloadData()
-//        }
 
-        
         var ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
-
-//            print(self.recipeObject)
-//            print("Hi")
-//            print(self.ingredients)
         }
         
         var directionsQuery = PFQuery(className: "Directions")
@@ -55,24 +41,20 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
-//            print(self.directions)
         }
 
     }
     
-
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // photos, deatils
         if section == 0 {
             return 5
         }
-            
         // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
             return ingredients.count
         }
-            
         // this is how many rows you want of directions (directions is section 2)
         else {
             return directions.count
@@ -217,6 +199,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+
+    // trying to do animation here on add to shopping list icon
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         if indexPath.section == 1 {
@@ -230,10 +214,13 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
         
+        
+    // creating variable for the cell so I can access
         let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
         
+        // trying to do animation on plus icon here
         UIView.animateWithDuration(2) { () -> Void in
-            ingredientsCell.plusIcon.transform = CGAffineTransformMakeScale(2 , 2)
+            ingredientsCell.plusIcon.hidden = true
         }
         }
         

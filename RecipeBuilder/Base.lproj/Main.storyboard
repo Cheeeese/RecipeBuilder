@@ -304,6 +304,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XQA-ip-gkL">
+                                                    <rect key="frame" x="352" y="6" width="15" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="small plus"/>
+                                                    <connections>
+                                                        <action selector="didAddIngredient:" destination="UGn-PR-ZPn" eventType="touchUpInside" id="rn4-Pu-CDv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1071,6 +1079,7 @@
         <image name="plusIcon" width="30" height="30"/>
         <image name="saveBtn" width="345" height="49"/>
         <image name="shoppingList" width="375" height="630"/>
+        <image name="small plus" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f3B-SV-lqF"/>

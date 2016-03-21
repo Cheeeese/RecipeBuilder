@@ -19,6 +19,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     var recipeObject: PFObject!
     var recipeId: String!
     
+    var recipeShoppingListArray: [PFObject]! = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +55,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
-            print(self.directions)
+//            print(self.directions)
         }
 
     }
@@ -214,6 +216,34 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func didTapBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var shoppingItem = PFObject(className: "ShoppingItem")
+        let currentObject = ingredients[indexPath.row]
+        shoppingItem["name"] = currentObject["name"]
+        shoppingItem["user"] = PFUser.currentUser()
+        
+//        recipeShoppingListArray.append(ingredients[indexPath.row])
+        print("This is the parse \(shoppingItem)")
+        
+        shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        }
+    }
+    
+    
+    
+//    @IBAction func didAddIngredient(sender: AnyObject) {
+////        
+////        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+////        let currentCell = IngredientsCell[indexPath.row]
+//        
+//        
+//  
+//        
+//    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

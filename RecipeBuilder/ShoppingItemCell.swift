@@ -158,6 +158,7 @@ class ShoppingItemCell: UITableViewCell {
 // If you're gonig to use the delte at row, need to do tableView.beginupdates and then tableview.endupdates
                         // tableview.indexpathforcell
 
+                        //This is how you delete
 
                         print("This row \(self.cellIndexPath.row)")
                         print("This row \([self.cellIndexPath])")

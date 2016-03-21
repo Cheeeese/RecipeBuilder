@@ -13,8 +13,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
-    var ingredients: [PFObject]!
-    var directions: [PFObject]!
+    var ingredients: [PFObject]! = []
+    var directions: [PFObject]! = []
     
     var recipeObject: PFObject!
     var recipeId: String!
@@ -28,17 +28,28 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
      //   recipeObject = recipeObject.objectId
+//        
+//        var query = PFQuery(className: "Recipe")
+//        query.whereKey("user", equalTo: PFUser.currentUser()!)
+//        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+//            self.recipes = results as [PFObject]!
+//            self.tableView.reloadData()
+//        }
+
         
         var ingredientsQuery = PFQuery(className: "Ingredients")
-        ingredientsQuery.whereKey("Recipe", equalTo: recipeObject)
+        ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
-            print(self.ingredients)
+
+//            print(self.recipeObject)
+//            print("Hi")
+//            print(self.ingredients)
         }
         
         var directionsQuery = PFQuery(className: "Directions")
-        directionsQuery.whereKey("Recipe", equalTo: recipeObject)
+        directionsQuery.whereKey("recipe", equalTo: recipeObject)
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
@@ -57,12 +68,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             
         // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
-            return 2
+            return ingredients.count
         }
             
         // this is how many rows you want of directions (directions is section 2)
         else {
-            return 4
+            return directions.count
         }
     }
     
@@ -104,7 +115,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-            ingredientsCell.ingredientsLabel.text = ingredients[indexPath.row] as? String
+            
+            let currentIndex = ingredients[indexPath.row]
+            ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
             
             return ingredientsCell
         }
@@ -112,7 +125,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         //directions section
         else {
             let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
-         //   directionsCell.directionsLabel.text = directions[indexPath.row] as? String
+      
+            let currentIndex = directions[indexPath.row]
+            directionsCell.directionsLabel.text = currentIndex["name"] as? String
+            
             return directionsCell
         }
 

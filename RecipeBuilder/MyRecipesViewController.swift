@@ -37,6 +37,7 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.recipes = results as [PFObject]!
             self.tableView.reloadData()
+//            print(results)
         }
     }
     

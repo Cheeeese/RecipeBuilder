@@ -13,11 +13,13 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
-    var ingredients: [PFObject]!
-    var directions: [PFObject]!
+    var ingredients: [PFObject]! = []
+    var directions: [PFObject]! = []
     
     var recipeObject: PFObject!
     var recipeId: String!
+    
+    var recipeShoppingListArray: [PFObject]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +30,32 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
      //   recipeObject = recipeObject.objectId
+//        
+//        var query = PFQuery(className: "Recipe")
+//        query.whereKey("user", equalTo: PFUser.currentUser()!)
+//        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+//            self.recipes = results as [PFObject]!
+//            self.tableView.reloadData()
+//        }
+
         
         var ingredientsQuery = PFQuery(className: "Ingredients")
-        ingredientsQuery.whereKey("Recipe", equalTo: recipeObject)
+        ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
-            print(self.ingredients)
+
+//            print(self.recipeObject)
+//            print("Hi")
+//            print(self.ingredients)
         }
         
         var directionsQuery = PFQuery(className: "Directions")
-        directionsQuery.whereKey("Recipe", equalTo: recipeObject)
+        directionsQuery.whereKey("recipe", equalTo: recipeObject)
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
-            print(self.directions)
+//            print(self.directions)
         }
 
     }
@@ -57,12 +70,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             
         // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
-            return 2
+            return ingredients.count
         }
             
         // this is how many rows you want of directions (directions is section 2)
         else {
-            return 4
+            return directions.count
         }
     }
     
@@ -104,7 +117,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-            ingredientsCell.ingredientsLabel.text = ingredients[indexPath.row] as? String
+            
+            let currentIndex = ingredients[indexPath.row]
+            ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
             
             return ingredientsCell
         }
@@ -112,7 +127,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         //directions section
         else {
             let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
-         //   directionsCell.directionsLabel.text = directions[indexPath.row] as? String
+      
+            let currentIndex = directions[indexPath.row]
+            directionsCell.directionsLabel.text = currentIndex["name"] as? String
+            
             return directionsCell
         }
 
@@ -198,6 +216,34 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func didTapBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var shoppingItem = PFObject(className: "ShoppingItem")
+        let currentObject = ingredients[indexPath.row]
+        shoppingItem["name"] = currentObject["name"]
+        shoppingItem["user"] = PFUser.currentUser()
+        
+//        recipeShoppingListArray.append(ingredients[indexPath.row])
+        print("This is the parse \(shoppingItem)")
+        
+        shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        }
+    }
+    
+    
+    
+//    @IBAction func didAddIngredient(sender: AnyObject) {
+////        
+////        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+////        let currentCell = IngredientsCell[indexPath.row]
+//        
+//        
+//  
+//        
+//    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

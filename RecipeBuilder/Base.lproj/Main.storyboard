@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="309" sectionHeaderHeight="28" sectionFooterHeight="28" id="b5D-pq-AuR">
-                                <rect key="frame" x="0.0" y="-20" width="375" height="635"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="620"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -304,6 +304,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XQA-ip-gkL">
+                                                    <rect key="frame" x="352" y="6" width="15" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="small plus"/>
+                                                    <connections>
+                                                        <action selector="didAddIngredient:" destination="UGn-PR-ZPn" eventType="touchUpInside" id="rn4-Pu-CDv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -388,11 +396,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecipeCardCell" rowHeight="190" id="g65-cA-bQL" customClass="RecipeCardCell" customModule="RecipeBuilder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCardCell" rowHeight="190" id="g65-cA-bQL" customClass="RecipeCardCell" customModule="RecipeBuilder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g65-cA-bQL" id="z7v-YV-gwu">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="189.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QNx-o4-Ag3">
@@ -1071,6 +1079,7 @@
         <image name="plusIcon" width="30" height="30"/>
         <image name="saveBtn" width="345" height="49"/>
         <image name="shoppingList" width="375" height="630"/>
+        <image name="small plus" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f3B-SV-lqF"/>

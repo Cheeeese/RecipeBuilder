@@ -451,7 +451,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     //Save recipe by sending data to server
     @IBAction func didTapSave(sender: UIButton) {
         
-        recipeInputTableView.reloadData()
+//        recipeInputTableView.reloadData()
         
         var recipe = PFObject(className: "Recipe")
    //     var currentRecipeId: ObjectIdentifier!
@@ -470,30 +470,30 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
            
         }
         
-//        let currentRecipeId = recipe.objectId
+        var currentRecipeObject = recipe
         
         for index in 0...(ingredientsArray.count - 1) {
         
             var ingredients = PFObject(className: "Ingredients")
             ingredients["name"] = ingredientsArray[index].text
-//            ingredients["recipeId"] = currentRecipeId
+            ingredients["recipe"] = currentRecipeObject
         
             ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             }
-            
-            print(ingredients)
 
+         
        }
         
         for index in 0...(directionsArray.count - 1) {
             
             var directions = PFObject(className: "Directions")
             directions["name"] = directionsArray[index].text
+            directions["recipe"] = currentRecipeObject
 
             directions.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             }
             
-            print(directions)
+          
         }
         
         

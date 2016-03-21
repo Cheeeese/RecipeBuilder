@@ -24,7 +24,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var prepTimeTextField: UITextField!
     var cookTimeTextField: UITextField!
     
-    var ingredientsArray: [String]! = []
+    var ingredientsArray: [UITextView]! = []
+    var directionsArray: [UITextView]! = []
     
     var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
     var picker = UIPickerView()
@@ -64,9 +65,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         if section == 0 {
           return 7
         } else if section == 1 {
-            return 2
+            return 4
         } else if section == 2 {
-            return 1
+            return 4
         } else {
             return 1
         }
@@ -146,7 +147,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             ingredientsInputTextView = ingredientsInputCell.ingredientsInputTextView
             ingredientsInputCell.ingredientsInputTextView.delegate = self
             
- //           ingredientsArray[indexPath.row] = ingredientsInputCell.ingredientsInputTextView.text
+            ingredientsArray.append(ingredientsInputCell.ingredientsInputTextView)
+//            ingredientsArray[indexPath.row] = ingredientsInputCell.ingredientsInputTextView
             
             return ingredientsInputCell
         
@@ -157,6 +159,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             directionsInputTextView = directionsInputCell.directionsInputTextView
             directionsInputCell.directionsInputTextView.delegate = self
+            
+            directionsArray.append(directionsInputCell.directionsInputTextView)
             
             return directionsInputCell
         
@@ -450,6 +454,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipeInputTableView.reloadData()
         
         var recipe = PFObject(className: "Recipe")
+   //     var currentRecipeId: ObjectIdentifier!
+       
         
         recipe["user"] = PFUser.currentUser()
         //recipe["image"] = selectedImage.image
@@ -464,19 +470,34 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
            
         }
         
+//        let currentRecipeId = recipe.objectId
         
-       for index in 0...1 {
+        for index in 0...(ingredientsArray.count - 1) {
         
             var ingredients = PFObject(className: "Ingredients")
-            ingredients["name"] = ingredientsInputTextView.text
+            ingredients["name"] = ingredientsArray[index].text
+//            ingredients["recipeId"] = currentRecipeId
         
             ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                
             }
-        
-        print(ingredients["name"])
-        
+            
+            print(ingredients)
+
        }
+        
+        for index in 0...(directionsArray.count - 1) {
+            
+            var directions = PFObject(className: "Directions")
+            directions["name"] = directionsArray[index].text
+
+            directions.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            }
+            
+            print(directions)
+        }
+        
+        
+        
         
         
         

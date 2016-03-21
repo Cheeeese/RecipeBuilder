@@ -18,9 +18,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     var recipeObject: PFObject!
     var recipeId: String!
-    
+
     var recipeShoppingListArray: [PFObject]! = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -218,37 +218,32 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
+        if indexPath.section == 1 {
         var shoppingItem = PFObject(className: "ShoppingItem")
         let currentObject = ingredients[indexPath.row]
         shoppingItem["name"] = currentObject["name"]
         shoppingItem["user"] = PFUser.currentUser()
         
-//        recipeShoppingListArray.append(ingredients[indexPath.row])
         print("This is the parse \(shoppingItem)")
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
+        
+        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+        
+        UIView.animateWithDuration(2) { () -> Void in
+            ingredientsCell.plusIcon.transform = CGAffineTransformMakeScale(2 , 2)
+        }
+        }
+        
     }
-    
-    
-    
-//    @IBAction func didAddIngredient(sender: AnyObject) {
-////        
-////        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-////        let currentCell = IngredientsCell[indexPath.row]
-//        
-//        
-//  
-//        
-//    }
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     /*
     // MARK: - Navigation

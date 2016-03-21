@@ -11,6 +11,7 @@ import UIKit
 class IngredientsCell: UITableViewCell {
     
     @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var plusIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

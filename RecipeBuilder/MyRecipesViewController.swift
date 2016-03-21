@@ -25,14 +25,14 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "onTimer", userInfo: nil, repeats: true)
         
         timer.fire()
         
     }
     
     func onTimer() {
-        var query = PFQuery(className: "Recipe")
+        let query = PFQuery(className: "Recipe")
         query.whereKey("user", equalTo: PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.recipes = results as [PFObject]!

@@ -28,21 +28,30 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
 
-        var ingredientsQuery = PFQuery(className: "Ingredients")
+        let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
+            print(self.ingredients.count)
         }
         
-        var directionsQuery = PFQuery(className: "Directions")
+        let directionsQuery = PFQuery(className: "Directions")
         directionsQuery.whereKey("recipe", equalTo: recipeObject)
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
         }
 
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
     }
     
   
@@ -59,6 +68,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         else {
             return directions.count
         }
+        
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -502,10 +502,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="plusIcon" id="eOX-jg-lG1">
-                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UJq-aU-wZH">
                                         <rect key="frame" x="106" y="30" width="163" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -541,7 +537,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" id="k8U-3p-VCu">
-                                                            <rect key="frame" x="0.0" y="1" width="375" height="57"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Can of Peas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lch-E2-2pu">
@@ -551,6 +547,10 @@
                                                                     <color key="textColor" red="0.16078431372549018" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="checkMark" id="yYW-zw-K2K">
+                                                                    <rect key="frame" x="341" y="13" width="26" height="29"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
@@ -562,6 +562,7 @@
                                         <connections>
                                             <outlet property="archiveIconView" destination="2kz-h8-Cg6" id="yrN-wy-MVY"/>
                                             <outlet property="deleteIconView" destination="8xF-lT-ZDw" id="c3s-f8-rhg"/>
+                                            <outlet property="itemCheckImageView" destination="yYW-zw-K2K" id="4hk-Xp-BN7"/>
                                             <outlet property="shoppingItemBackgroundView" destination="pGC-et-xJN" id="BkW-gF-sjf"/>
                                             <outlet property="shoppingItemLabel" destination="lch-E2-2pu" id="6g0-fp-VC7"/>
                                             <outlet property="shoppingItemView" destination="k8U-3p-VCu" id="Zum-NJ-wuM"/>

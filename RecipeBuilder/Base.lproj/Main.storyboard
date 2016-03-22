@@ -174,10 +174,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="229.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitmap" id="Thn-qV-4js">
+                                                <view contentMode="scaleToFill" id="ZMd-4U-XZn">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.7567145824" green="0.80188703539999995" blue="0.83495825530000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Thn-qV-4js">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photoGradient" id="x1Q-d0-R9n">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
@@ -434,7 +438,7 @@
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="190" sectionHeaderHeight="28" sectionFooterHeight="28" id="giW-GC-cfx">
-                                <rect key="frame" x="0.0" y="65" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1161,7 +1165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bitmap" width="377" height="377"/>
         <image name="addImageBtn" width="59" height="42"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="backIcon" width="10" height="19"/>

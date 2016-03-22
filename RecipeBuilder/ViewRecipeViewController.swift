@@ -15,6 +15,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
 
     var ingredients: [PFObject]! = []
     var directions: [PFObject]! = []
+    var recipePhoto: [PFObject]! = []
     
     var recipeObject: PFObject!
     var recipeId: String!
@@ -29,13 +30,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-
+        
         let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
-            print(self.ingredients.count)
         }
         
         let directionsQuery = PFQuery(className: "Directions")
@@ -44,7 +44,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
         }
-
+        
+        let imageQuery = PFQuery(className: "RecipePhoto")
+        imageQuery.whereKey("recipe", equalTo: recipeObject)
+        imageQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            self.recipePhoto = results as [PFObject]!
+            self.tableView.reloadData()
+            print("This is the count after imageQuery: \(self.recipePhoto.count)")
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -81,6 +88,32 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
+                
+                if recipePhoto.count == 0 {
+                    
+                } else {
+                    let currentIndex = recipePhoto[0]
+                        let recipeImageFile = currentIndex["imageFile"] as! PFFile
+                        recipeImageFile.getDataInBackgroundWithBlock {
+                            (imageData: NSData?, error: NSError?) -> Void in
+                            if error == nil {
+                                if let imageData = imageData {
+                                    let image = UIImage(data:imageData)
+                                    recipeImageCell.recipeImageContainer.image = image
+                                    UIView.animateWithDuration(0.7, animations: { () -> Void in
+                                        recipeImageCell.recipeImageContainer.alpha = 1
+                                    })
+                                }
+                            }
+                    }
+                    
+                    
+
+                
+                }
+                
+                
+                
                 return recipeImageCell
             }
             else if indexPath.row == 1 {
@@ -219,8 +252,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         let currentObject = ingredient
         shoppingItem["name"] = currentObject
         shoppingItem["user"] = PFUser.currentUser()
-        
-        print("This is the parse \(shoppingItem)")
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }

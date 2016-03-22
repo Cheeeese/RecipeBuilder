@@ -11,7 +11,29 @@ import UIKit
 class IngredientsCell: UITableViewCell {
     
     @IBOutlet weak var ingredientsLabel: UILabel!
-    @IBOutlet weak var plusIcon: UIImageView!
+    var viewRecipeViewController:ViewRecipeViewController!
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var checkMark: UIImageView!
+    
+    
+    
+    
+    @IBAction func didTapPlus(sender: AnyObject) {
+        viewRecipeViewController.createItem(ingredientsLabel.text!)
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.plusButton.transform = CGAffineTransformMakeRotation(45)
+            self.checkMark.alpha = 1
+            self.checkMark.transform = CGAffineTransformMakeScale(1, 1)
+        
+            }) { (Bool) -> Void in
+                self.checkMark.alpha = 0
+                self.plusButton.transform = CGAffineTransformIdentity
+                
+        }
+        
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -15,6 +15,7 @@ class ShoppingItemCell: UITableViewCell {
     @IBOutlet weak var deleteIconView: UIImageView!
     @IBOutlet weak var shoppingItemView: UIView!
     @IBOutlet weak var shoppingItemLabel: UILabel!
+    @IBOutlet weak var itemCheckImageView: UIImageView!
     
     var shoppingItemOriginalCenter: CGPoint!
     var archiveIconOriginalCenter: CGPoint!
@@ -35,6 +36,8 @@ class ShoppingItemCell: UITableViewCell {
     let redColor = UIColor(red: 233.0/255.0, green: 83.0/255.0, blue: 52.0/255.0, alpha: 1.0)
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     let whiteColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    let blackColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+
     
     var shoppingListViewController: ShoppingListViewController!
     var cellIndexPath: NSIndexPath!
@@ -50,6 +53,7 @@ class ShoppingItemCell: UITableViewCell {
         
         archiveIconOriginalCenter = archiveIconView.center
         deleteIconOriginalCenter = deleteIconView.center
+        itemCheckImageView.alpha = 0
         
         shoppingItemStaticRight = CGPoint(x: 700.0, y: shoppingItemView.center.y)
         shoppingItemStaticLeft = CGPoint(x: -700.0, y: shoppingItemView.center.y)
@@ -138,7 +142,10 @@ class ShoppingItemCell: UITableViewCell {
                     }, completion: { (Bool) -> Void in
 
                         self.shoppingItemView.center = self.shoppingItemStaticLeft
-                        self.shoppingItemView.backgroundColor = self.yellowColor
+                        self.shoppingItemLabel.textColor = self.grayColor
+                        self.itemCheckImageView.alpha = 1
+
+//                        self.shoppingItemView.backgroundColor = self.yellowColor
                         self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
 //                        UIView.animateWithDuration(0.2, animations: { () -> Void in
 //                            self.shoppingItemView.center = self.shoppingItemStaticCenter
@@ -174,11 +181,11 @@ class ShoppingItemCell: UITableViewCell {
 
                         // Old Code
                         //                        self.shoppingListViewController.shoppingList.removeAtIndex(self.cellIndexPath.row)
-                        //                        self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
                         
-
                         var shoppingItemToDelete = self.shoppingListViewController.newShoppingList[self.cellIndexPath.row]
                         self.shoppingListViewController.newShoppingList.removeAtIndex(self.cellIndexPath.row)
+                        self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
+
 //                        shoppingItemToDelete.deleteInBackgroundWithBlock({ (Bool, NSError?) -> Void in
 //
 //                        })

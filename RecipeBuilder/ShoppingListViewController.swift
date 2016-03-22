@@ -20,7 +20,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     var newShoppingList: [PFObject]! = []
     // TEMP DEFINED THE SHOPPING LIST
     var shoppingList = ["2 sweet potatoes", "2 eggs", "1  onion", "Olive Oil", "Basil", "Thyme", "Chili Flakes", "Chives", "Parsley", "Bread"]
-    var shoppingListChecked = [0,0,0,0,0,0,0,0,0,0]
+    var shoppingListChecked: [Int] = []
 
     
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         shoppingListQuery.whereKey("user", equalTo: PFUser.currentUser()!)
         shoppingListQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.newShoppingList = results as [PFObject]!
+            self.shoppingListChecked = [Int](count: self.newShoppingList.count, repeatedValue: 0)
             self.shoppingListTableView.reloadData()
 //            print(self.newShoppingList)
         }
@@ -78,11 +79,15 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         let individualItem = newShoppingList[indexPath.row]
         cell.shoppingItemLabel.text = individualItem["name"] as? String
         
-//        if shoppingListChecked[indexPath.row] == 0 {
+        if shoppingListChecked[indexPath.row] == 0 {
 //            cell.shoppingItemView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-//        } else {
+            cell.shoppingItemLabel.textColor = cell.blackColor
+            cell.itemCheckImageView.alpha = 0
+        } else {
 //            cell.shoppingItemView.backgroundColor = UIColor(red: 249.0/255.0, green: 212.0/255.0, blue: 51.0/255.0, alpha: 1.0)
-//        }
+            cell.shoppingItemLabel.textColor = cell.grayColor
+            cell.itemCheckImageView.alpha = 1
+        }
         
         cell.selectionStyle = .None
         

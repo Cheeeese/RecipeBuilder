@@ -113,7 +113,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             
             ingredientsCell.viewRecipeViewController = self
             
-            ingredientsCell.checkMark.transform = CGAffineTransformMakeScale(0.8, 0.8)
+          //  ingredientsCell.checkMark.transform = CGAffineTransformMakeScale(0.8, 0.8)
             
             let currentIndex = ingredients[indexPath.row]
             ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
@@ -213,34 +213,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func didTapBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-
-//    // trying to do animation here on add to shopping list icon
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//
-////        if indexPath.section == 1 {
-////            let shoppingItem = PFObject(className: "ShoppingItem")
-////            let currentObject = ingredients[indexPath.row]
-////            shoppingItem["name"] = currentObject["name"]
-////            shoppingItem["user"] = PFUser.currentUser()
-////            
-////            print("This is the parse \(shoppingItem)")
-////            
-////            shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-////            }
-//        
-//            
-//            // creating variable for the cell so I can access
-//            let ingredientsCell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientsCell
-//            
-////            // trying to do animation on plus icon here
-////            UIView.animateWithDuration(1) { () -> Void in
-////                ingredientsCell.plusIcon.transform
-////                 = CGAffineTransformMakeRotation(45)
-////            }
-//        //}
-//        
-//    }
 
     func createItem(ingredient: String) {
         let shoppingItem = PFObject(className: "ShoppingItem")

@@ -24,14 +24,15 @@ class IngredientsCell: UITableViewCell {
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.plusButton.transform = CGAffineTransformMakeRotation(45)
             self.checkMark.alpha = 1
-            self.checkMark.transform = CGAffineTransformMakeScale(1, 1)
-        
-            }) { (Bool) -> Void in
+            self.checkMark.transform = CGAffineTransformMakeScale(1.15, 1.15)
+            })
+        delay(1.2) { () -> () in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.checkMark.alpha = 0
                 self.plusButton.transform = CGAffineTransformIdentity
-                
+            })
+           
         }
-        
         
     }
     

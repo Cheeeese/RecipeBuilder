@@ -16,11 +16,11 @@
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
-            <string>SFUIText-Light</string>
-            <string>SFUIText-Light</string>
-            <string>SFUIText-Light</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+            <string>SFUIText-Medium</string>
+            <string>SFUIText-Medium</string>
             <string>SFUIText-Medium</string>
             <string>SFUIText-Medium</string>
             <string>SFUIText-Medium</string>
@@ -75,7 +75,7 @@
                                         <color key="backgroundColor" red="0.95110285279999995" green="0.96538800000000002" blue="0.97523158789999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cSS-9Q-51q">
-                                        <rect key="frame" x="302" y="12" width="22" height="22"/>
+                                        <rect key="frame" x="250" y="0.0" width="125" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="timer_inactive">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +86,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wv4-IR-y9k">
-                                        <rect key="frame" x="176" y="12" width="24" height="22"/>
+                                        <rect key="frame" x="125" y="0.0" width="125" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="shoppingIcon_inactive">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" id="byM-Wa-gyn">
-                                        <rect key="frame" x="43" y="12" width="38" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="10"/>
                                         <state key="normal" image="recipeIcon_inactive">
@@ -174,17 +174,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="229.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitmap" id="Thn-qV-4js">
+                                                <view contentMode="scaleToFill" id="ZMd-4U-XZn">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.7567145824" green="0.80188703539999995" blue="0.83495825530000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Thn-qV-4js">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photoGradient" id="x1Q-d0-R9n">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nXB-AW-1M8">
-                                                    <rect key="frame" x="12" y="10" width="12" height="38"/>
+                                                    <rect key="frame" x="12" y="20" width="12" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" image="backIcon">
@@ -248,7 +252,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an exciting and fun description of your dish. Isn't it yummy??" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d2e-UG-sDZ">
-                                                    <rect key="frame" x="12" y="0.0" width="355" height="59.5"/>
+                                                    <rect key="frame" x="12" y="0.0" width="355" height="42.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,50 +273,50 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="circleBorder" id="07z-om-kwa">
-                                                    <rect key="frame" x="224" y="16" width="8" height="8"/>
+                                                    <rect key="frame" x="234" y="16" width="8" height="8"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="circleBorder" id="Cql-4T-gI5">
-                                                    <rect key="frame" x="80" y="16" width="8" height="8"/>
+                                                    <rect key="frame" x="89" y="16" width="8" height="8"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serves:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JBQ-Z6-Og2">
                                                     <rect key="frame" x="12" y="5" width="54" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FUb-Fq-3ID">
-                                                    <rect key="frame" x="64" y="5" width="20" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook time: " lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4T-fe-iQa">
-                                                    <rect key="frame" x="240" y="5" width="74" height="30"/>
+                                                    <rect key="frame" x="250" y="5" width="74" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prep time: " lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NDl-2q-Kw2">
+                                                    <rect key="frame" x="106" y="5" width="74" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FUb-Fq-3ID">
+                                                    <rect key="frame" x="68" y="5" width="20" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J9a-jx-dYp">
-                                                    <rect key="frame" x="315" y="5" width="52" height="30"/>
+                                                    <rect key="frame" x="326" y="5" width="48" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dBh-Zs-8ge">
-                                                    <rect key="frame" x="171" y="5" width="53" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prep time: " lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NDl-2q-Kw2">
-                                                    <rect key="frame" x="101" y="5" width="74" height="30"/>
+                                                    <rect key="frame" x="180" y="5" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,15 +344,24 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="small plus" id="dcB-l7-UEV">
-                                                    <rect key="frame" x="345" y="10" width="15" height="15"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oan-g5-eGM">
+                                                    <rect key="frame" x="325" y="-0.5" width="42" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="small plus"/>
+                                                    <connections>
+                                                        <action selector="didTapPlus:" destination="Wsv-Ph-mVc" eventType="touchUpInside" id="tHa-Bi-AG4"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="checkMark" id="yty-tO-gVT">
+                                                    <rect key="frame" x="337" y="7" width="18" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkMark" destination="yty-tO-gVT" id="Kaj-x4-07n"/>
                                             <outlet property="ingredientsLabel" destination="uEa-cB-h6c" id="ISA-rk-C4T"/>
-                                            <outlet property="plusIcon" destination="dcB-l7-UEV" id="EpQ-HV-uJe"/>
+                                            <outlet property="plusButton" destination="Oan-g5-eGM" id="7CA-A4-JCm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DirectionsCell" rowHeight="60" id="Mpq-Jl-xNc" customClass="DirectionsCell" customModule="RecipeBuilder" customModuleProvider="target">
@@ -425,7 +438,7 @@
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.80000000000000004" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="190" sectionHeaderHeight="28" sectionFooterHeight="28" id="giW-GC-cfx">
-                                <rect key="frame" x="0.0" y="65" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -493,10 +506,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="plusIcon" id="eOX-jg-lG1">
-                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UJq-aU-wZH">
                                         <rect key="frame" x="106" y="30" width="163" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -508,7 +517,7 @@
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.69019607843137254" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="QQH-XA-VbR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -532,7 +541,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" id="k8U-3p-VCu">
-                                                            <rect key="frame" x="0.0" y="1" width="375" height="57"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Can of Peas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lch-E2-2pu">
@@ -542,6 +551,10 @@
                                                                     <color key="textColor" red="0.16078431372549018" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="checkMark" id="yYW-zw-K2K">
+                                                                    <rect key="frame" x="341" y="13" width="26" height="29"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
@@ -553,6 +566,7 @@
                                         <connections>
                                             <outlet property="archiveIconView" destination="2kz-h8-Cg6" id="yrN-wy-MVY"/>
                                             <outlet property="deleteIconView" destination="8xF-lT-ZDw" id="c3s-f8-rhg"/>
+                                            <outlet property="itemCheckImageView" destination="yYW-zw-K2K" id="4hk-Xp-BN7"/>
                                             <outlet property="shoppingItemBackgroundView" destination="pGC-et-xJN" id="BkW-gF-sjf"/>
                                             <outlet property="shoppingItemLabel" destination="lch-E2-2pu" id="6g0-fp-VC7"/>
                                             <outlet property="shoppingItemView" destination="k8U-3p-VCu" id="Zum-NJ-wuM"/>
@@ -950,7 +964,7 @@
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.69019607843137254" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="177" sectionHeaderHeight="28" sectionFooterHeight="28" id="D0u-ey-Y0P">
-                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1152,10 +1166,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bitmap" width="377" height="377"/>
         <image name="addImageBtn" width="59" height="42"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="backIcon" width="10" height="19"/>
+        <image name="checkMark" width="18" height="18"/>
         <image name="circleBorder" width="8" height="8"/>
         <image name="delete_icon" width="25" height="25"/>
         <image name="dismissBtn" width="18" height="18"/>
@@ -1170,7 +1184,7 @@
         <image name="shoppingIcon_active" width="22" height="22"/>
         <image name="shoppingIcon_inactive" width="22" height="22"/>
         <image name="shoppingList" width="375" height="630"/>
-        <image name="small plus" width="15" height="15"/>
+        <image name="small plus" width="18" height="18"/>
         <image name="timer_active" width="24" height="22"/>
         <image name="timer_inactive" width="24" height="22"/>
     </resources>

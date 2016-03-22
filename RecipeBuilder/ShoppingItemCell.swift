@@ -15,6 +15,7 @@ class ShoppingItemCell: UITableViewCell {
     @IBOutlet weak var deleteIconView: UIImageView!
     @IBOutlet weak var shoppingItemView: UIView!
     @IBOutlet weak var shoppingItemLabel: UILabel!
+    @IBOutlet weak var itemCheckImageView: UIImageView!
     
     var shoppingItemOriginalCenter: CGPoint!
     var archiveIconOriginalCenter: CGPoint!
@@ -35,6 +36,8 @@ class ShoppingItemCell: UITableViewCell {
     let redColor = UIColor(red: 233.0/255.0, green: 83.0/255.0, blue: 52.0/255.0, alpha: 1.0)
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     let whiteColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    let blackColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+
     
     var shoppingListViewController: ShoppingListViewController!
     var cellIndexPath: NSIndexPath!
@@ -50,9 +53,10 @@ class ShoppingItemCell: UITableViewCell {
         
         archiveIconOriginalCenter = archiveIconView.center
         deleteIconOriginalCenter = deleteIconView.center
+        itemCheckImageView.alpha = 0
         
-        shoppingItemStaticRight = CGPoint(x: 600.0, y: shoppingItemView.center.y)
-        shoppingItemStaticLeft = CGPoint(x: -600.0, y: shoppingItemView.center.y)
+        shoppingItemStaticRight = CGPoint(x: 700.0, y: shoppingItemView.center.y)
+        shoppingItemStaticLeft = CGPoint(x: -700.0, y: shoppingItemView.center.y)
         shoppingItemBackgroundView.backgroundColor = grayColor
         
         // Instantiate the pan gesture recognizer with code
@@ -82,14 +86,14 @@ class ShoppingItemCell: UITableViewCell {
     
     func resetItems() {
         archiveIconView.center = leftIconsStaticCenter
-        deleteIconView.center = leftIconsStaticCenter
+        deleteIconView.center = rightIconsStaticCenter
         
     }
     
     func iconsFollowPan() {
     
-        archiveIconView.center = CGPoint(x: shoppingItemView.center.x - 180.0, y: archiveIconOriginalCenter.y)
-        deleteIconView.center = CGPoint(x: shoppingItemView.center.x - 180.0, y: deleteIconOriginalCenter.y)
+        archiveIconView.center = CGPoint(x: shoppingItemView.center.x - 235.0, y: archiveIconOriginalCenter.y)
+        deleteIconView.center = CGPoint(x: shoppingItemView.center.x + 235.0, y: deleteIconOriginalCenter.y)
         
     }
 
@@ -117,7 +121,11 @@ class ShoppingItemCell: UITableViewCell {
             print("Gesture changed at: \(point)")
             
             shoppingItemView.center = CGPoint(x: shoppingItemOriginalCenter.x + translation.x, y: shoppingItemOriginalCenter.y)
-//            iconsFollowPan()
+            if shoppingItemView.center.x > 287.5 || shoppingItemView.center.x < 87.5 {
+                iconsFollowPan()
+            }
+
+            
             
             
             
@@ -134,13 +142,21 @@ class ShoppingItemCell: UITableViewCell {
                     }, completion: { (Bool) -> Void in
 
                         self.shoppingItemView.center = self.shoppingItemStaticLeft
-                        self.shoppingItemView.backgroundColor = self.yellowColor
+                        self.shoppingItemLabel.textColor = self.grayColor
+                        self.itemCheckImageView.alpha = 1
+
+//                        self.shoppingItemView.backgroundColor = self.yellowColor
                         self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
+//                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                            self.shoppingItemView.center = self.shoppingItemStaticCenter
+//
+//                        })
+
                         UIView.animateWithDuration(0.2, animations: { () -> Void in
                             self.shoppingItemView.center = self.shoppingItemStaticCenter
-
+                            }, completion: { (Bool) -> Void in
+                                self.resetItems()
                         })
-
                 })
 
 
@@ -162,9 +178,21 @@ class ShoppingItemCell: UITableViewCell {
 
                         print("This row \(self.cellIndexPath.row)")
                         print("This row \([self.cellIndexPath])")
-                        self.shoppingListViewController.shoppingList.removeAtIndex(self.cellIndexPath.row)
+
+                        // Old Code
+                        //                        self.shoppingListViewController.shoppingList.removeAtIndex(self.cellIndexPath.row)
+                        
+                        var shoppingItemToDelete = self.shoppingListViewController.newShoppingList[self.cellIndexPath.row]
+                        self.shoppingListViewController.newShoppingList.removeAtIndex(self.cellIndexPath.row)
                         self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
 
+//                        shoppingItemToDelete.deleteInBackgroundWithBlock({ (Bool, NSError?) -> Void in
+//
+//                        })
+
+                        shoppingItemToDelete.deleteInBackground()
+                        
+                        
                         self.shoppingListViewController.shoppingListTableView.beginUpdates()
                         self.shoppingListViewController.shoppingListTableView.deleteRowsAtIndexPaths([self.cellIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                         self.shoppingListViewController.shoppingListTableView.endUpdates()
@@ -190,7 +218,7 @@ class ShoppingItemCell: UITableViewCell {
                     self.shoppingItemView.center = self.shoppingItemStaticCenter
                     
                     }, completion: { (Bool) -> Void in
-//                        self.resetItemsPlacement()
+                        self.resetItems()
                         
                 })
                 

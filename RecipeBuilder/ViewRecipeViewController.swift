@@ -15,6 +15,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
 
     var ingredients: [PFObject]! = []
     var directions: [PFObject]! = []
+    var recipePhoto: [PFObject]! = []
     
     var recipeObject: PFObject!
     var recipeId: String!
@@ -28,21 +29,36 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-
-        var ingredientsQuery = PFQuery(className: "Ingredients")
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
         }
         
-        var directionsQuery = PFQuery(className: "Directions")
+        let directionsQuery = PFQuery(className: "Directions")
         directionsQuery.whereKey("recipe", equalTo: recipeObject)
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
         }
-
+        
+        let imageQuery = PFQuery(className: "RecipePhoto")
+        imageQuery.whereKey("recipe", equalTo: recipeObject)
+        imageQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            self.recipePhoto = results as [PFObject]!
+            self.tableView.reloadData()
+            print("This is the count after imageQuery: \(self.recipePhoto.count)")
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
     }
     
   
@@ -59,6 +75,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         else {
             return directions.count
         }
+        
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -70,6 +88,32 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
+                
+                if recipePhoto.count == 0 {
+                    
+                } else {
+                    let currentIndex = recipePhoto[0]
+                        let recipeImageFile = currentIndex["imageFile"] as! PFFile
+                        recipeImageFile.getDataInBackgroundWithBlock {
+                            (imageData: NSData?, error: NSError?) -> Void in
+                            if error == nil {
+                                if let imageData = imageData {
+                                    let image = UIImage(data:imageData)
+                                    recipeImageCell.recipeImageContainer.image = image
+                                    UIView.animateWithDuration(0.7, animations: { () -> Void in
+                                        recipeImageCell.recipeImageContainer.alpha = 1
+                                    })
+                                }
+                            }
+                    }
+                    
+                    
+
+                
+                }
+                
+                
+                
                 return recipeImageCell
             }
             else if indexPath.row == 1 {
@@ -99,6 +143,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+            
+            ingredientsCell.viewRecipeViewController = self
+            
+          //  ingredientsCell.checkMark.transform = CGAffineTransformMakeScale(0.8, 0.8)
             
             let currentIndex = ingredients[indexPath.row]
             ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
@@ -198,39 +246,18 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func didTapBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
 
-    // trying to do animation here on add to shopping list icon
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        if indexPath.section == 1 {
-        var shoppingItem = PFObject(className: "ShoppingItem")
-        let currentObject = ingredients[indexPath.row]
-        shoppingItem["name"] = currentObject["name"]
+    func createItem(ingredient: String) {
+        let shoppingItem = PFObject(className: "ShoppingItem")
+        let currentObject = ingredient
+        shoppingItem["name"] = currentObject
         shoppingItem["user"] = PFUser.currentUser()
-        
-        print("This is the parse \(shoppingItem)")
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
-        
-        
-    // creating variable for the cell so I can access
-        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-        
-        // trying to do animation on plus icon here
-        UIView.animateWithDuration(2) { () -> Void in
-            ingredientsCell.plusIcon.hidden = true
-        }
-        }
+
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     /*
     // MARK: - Navigation

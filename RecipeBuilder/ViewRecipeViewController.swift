@@ -12,15 +12,15 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var ingredients: [PFObject]! = []
     var directions: [PFObject]! = []
     
     var recipeObject: PFObject!
     var recipeId: String!
-    
+
     var recipeShoppingListArray: [PFObject]! = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,55 +28,48 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-     //   recipeObject = recipeObject.objectId
-//        
-//        var query = PFQuery(className: "Recipe")
-//        query.whereKey("user", equalTo: PFUser.currentUser()!)
-//        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
-//            self.recipes = results as [PFObject]!
-//            self.tableView.reloadData()
-//        }
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
 
-        
-        var ingredientsQuery = PFQuery(className: "Ingredients")
+        let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
-
-//            print(self.recipeObject)
-//            print("Hi")
-//            print(self.ingredients)
+            print(self.ingredients.count)
         }
         
-        var directionsQuery = PFQuery(className: "Directions")
+        let directionsQuery = PFQuery(className: "Directions")
         directionsQuery.whereKey("recipe", equalTo: recipeObject)
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
-//            print(self.directions)
         }
 
     }
     
-
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+    }
+    
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // photos, deatils
         if section == 0 {
             return 5
         }
-            
         // this is how many rows you want of ingredients (ingredients is section 1)
         else if section == 1 {
             return ingredients.count
         }
-            
         // this is how many rows you want of directions (directions is section 2)
         else {
             return directions.count
         }
+        
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -117,6 +110,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
+            
+            ingredientsCell.viewRecipeViewController = self
+            
+            ingredientsCell.checkMark.transform = CGAffineTransformMakeScale(0.8, 0.8)
             
             let currentIndex = ingredients[indexPath.row]
             ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
@@ -217,37 +214,46 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        var shoppingItem = PFObject(className: "ShoppingItem")
-        let currentObject = ingredients[indexPath.row]
-        shoppingItem["name"] = currentObject["name"]
+
+//    // trying to do animation here on add to shopping list icon
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//
+////        if indexPath.section == 1 {
+////            let shoppingItem = PFObject(className: "ShoppingItem")
+////            let currentObject = ingredients[indexPath.row]
+////            shoppingItem["name"] = currentObject["name"]
+////            shoppingItem["user"] = PFUser.currentUser()
+////            
+////            print("This is the parse \(shoppingItem)")
+////            
+////            shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+////            }
+//        
+//            
+//            // creating variable for the cell so I can access
+//            let ingredientsCell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientsCell
+//            
+////            // trying to do animation on plus icon here
+////            UIView.animateWithDuration(1) { () -> Void in
+////                ingredientsCell.plusIcon.transform
+////                 = CGAffineTransformMakeRotation(45)
+////            }
+//        //}
+//        
+//    }
+
+    func createItem(ingredient: String) {
+        let shoppingItem = PFObject(className: "ShoppingItem")
+        let currentObject = ingredient
+        shoppingItem["name"] = currentObject
         shoppingItem["user"] = PFUser.currentUser()
         
-//        recipeShoppingListArray.append(ingredients[indexPath.row])
         print("This is the parse \(shoppingItem)")
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
-    }
-    
-    
-    
-//    @IBAction func didAddIngredient(sender: AnyObject) {
-////        
-////        let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-////        let currentCell = IngredientsCell[indexPath.row]
-//        
-//        
-//  
-//        
-//    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+        
     }
 
     /*

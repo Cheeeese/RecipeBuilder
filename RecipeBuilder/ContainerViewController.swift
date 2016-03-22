@@ -34,11 +34,9 @@ class ContainerViewController: UIViewController {
         // create array of VCs
         viewControllers = [myRecipesViewController, shoppingListViewController, timersViewController]
         
-        // set button to selected state (we'll need this when we have visual design done)
-        //buttons[selectedIndex].selected = true
-        
         // make default view the My Recipes VC
         didTapNavItem(buttons[selectedIndex])
+        buttons[selectedIndex].selected = true
 
     }
 
@@ -47,6 +45,15 @@ class ContainerViewController: UIViewController {
         let previousIndex = selectedIndex
         selectedIndex = sender.tag
         let previousVC = viewControllers[previousIndex]
+        
+        // set button to selected state (we'll need this when we have visual design done)
+        if previousIndex == selectedIndex {
+            
+        } else {
+            buttons[selectedIndex].selected = true
+            buttons[previousIndex].selected = false
+        }
+
         
         // remove previous view controller
         previousVC.willMoveToParentViewController(nil)

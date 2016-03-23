@@ -16,6 +16,8 @@
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Medium.otf">
             <string>SFUIText-Medium</string>
@@ -26,8 +28,11 @@
             <string>SFUIText-Medium</string>
             <string>SFUIText-Medium</string>
             <string>SFUIText-Medium</string>
+            <string>SFUIText-Medium</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
@@ -63,6 +68,26 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" id="cIi-iu-xHc" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="691"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="a5b-ur-7Z7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GF7-gO-Crn">
+                                                <rect key="frame" x="12" y="26" width="58" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapLogout:" destination="0bB-ll-JF2" eventType="touchUpInside" id="Osi-Xm-B5R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="Eqz-mG-Rqx" userLabel="Bottom Nav">
@@ -337,15 +362,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="24.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item added to Shopping List" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8q-GN-IIJ">
+                                                    <rect key="frame" x="12" y="4.5" width="350" height="16.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="13"/>
+                                                    <color key="textColor" red="0.46076083179999999" green="0.52898430819999998" blue="0.58502870799999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uEa-cB-h6c">
-                                                    <rect key="frame" x="12" y="8" width="350" height="16.5"/>
+                                                    <rect key="frame" x="12" y="4" width="350" height="16.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oan-g5-eGM">
-                                                    <rect key="frame" x="325" y="-0.5" width="42" height="32"/>
+                                                    <rect key="frame" x="325" y="-4.5" width="42" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="small plus"/>
                                                     <connections>
@@ -353,7 +385,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="checkMark" id="yty-tO-gVT">
-                                                    <rect key="frame" x="337" y="7" width="18" height="18"/>
+                                                    <rect key="frame" x="337" y="3" width="18" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -361,6 +393,7 @@
                                         <connections>
                                             <outlet property="checkMark" destination="yty-tO-gVT" id="Kaj-x4-07n"/>
                                             <outlet property="ingredientsLabel" destination="uEa-cB-h6c" id="ISA-rk-C4T"/>
+                                            <outlet property="itemAddedLabel" destination="V8q-GN-IIJ" id="0GV-vJ-jhd"/>
                                             <outlet property="plusButton" destination="Oan-g5-eGM" id="7CA-A4-JCm"/>
                                         </connections>
                                     </tableViewCell>
@@ -408,6 +441,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" id="8YO-ct-PVR">
+                                <rect key="frame" x="0.0" y="224" width="375" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try adding a recipe to see it here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="amn-6K-ueL">
+                                        <rect key="frame" x="62" y="130" width="250" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="16"/>
+                                        <color key="textColor" red="0.46076083183288574" green="0.52898430824279785" blue="0.58502870798110962" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.46076083179999999" green="0.52898430819999998" blue="0.58502870799999995" alpha="0.64000000000000001" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no recipes yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0H7-4S-jCV">
+                                        <rect key="frame" x="76" y="101" width="223" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="16"/>
+                                        <color key="textColor" red="0.46076083183288574" green="0.52898430824279785" blue="0.58502870798110962" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.46076083179999999" green="0.52898430819999998" blue="0.58502870799999995" alpha="0.64000000000000001" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="smiley" id="USQ-9M-p6N">
+                                        <rect key="frame" x="167" y="28" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="X1Q-9e-rQY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -423,6 +481,17 @@
                                                 <color key="textColor" red="0.96470588235294119" green="0.98039215686274506" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3az-aP-md5">
+                                                <rect key="frame" x="12" y="26" width="58" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapLogout:" destination="0bB-ll-JF2" eventType="touchUpInside" id="AYJ-wv-fJ6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.2901960784" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -440,7 +509,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="190" sectionHeaderHeight="28" sectionFooterHeight="28" id="giW-GC-cfx">
                                 <rect key="frame" x="0.0" y="65" width="375" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCardCell" rowHeight="190" id="g65-cA-bQL" customClass="RecipeCardCell" customModule="RecipeBuilder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="190"/>
@@ -470,6 +539,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="fhz-JR-rj3" id="At5-dT-7c6"/>
+                                            <outlet property="recipeImageContainer" destination="QNx-o4-Ag3" id="zcj-2z-Wr4"/>
                                             <segue destination="UGn-PR-ZPn" kind="push" identifier="ViewRecipeSegue" id="d1I-4T-XTg"/>
                                         </connections>
                                     </tableViewCell>
@@ -482,7 +552,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="emptyStateView" destination="8YO-ct-PVR" id="xmZ-l7-pZ5"/>
                         <outlet property="tableView" destination="giW-GC-cfx" id="cA7-WU-BtO"/>
+                        <segue destination="8ec-DH-zzW" kind="modal" identifier="LogoutSegue" id="Mcd-rq-z8u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhl-OC-m3R" sceneMemberID="firstResponder"/>
@@ -1185,6 +1257,7 @@
         <image name="shoppingIcon_inactive" width="22" height="22"/>
         <image name="shoppingList" width="375" height="630"/>
         <image name="small plus" width="18" height="18"/>
+        <image name="smiley" width="68" height="68"/>
         <image name="timer_active" width="24" height="22"/>
         <image name="timer_inactive" width="24" height="22"/>
     </resources>

@@ -31,6 +31,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
+        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        
+        timer.fire()
+    }
+    
+    func onTimer() {
         let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
@@ -44,14 +50,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
         }
-        
-        let imageQuery = PFQuery(className: "RecipePhoto")
-        imageQuery.whereKey("recipe", equalTo: recipeObject)
-        imageQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
-            self.recipePhoto = results as [PFObject]!
-            self.tableView.reloadData()
-            print("This is the count after imageQuery: \(self.recipePhoto.count)")
-        }
+//        
+//        let imageQuery = PFQuery(className: "RecipePhoto")
+//        imageQuery.whereKey("recipe", equalTo: recipeObject)
+//        imageQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+//            self.recipePhoto = results as [PFObject]!
+//            self.tableView.reloadData()
+//            print("This is the count after imageQuery: \(self.recipePhoto.count)")
+//        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,11 +95,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             if indexPath.row == 0 {
                 let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
                 
-                if recipePhoto.count == 0 {
-                    
-                } else {
-                    let currentIndex = recipePhoto[0]
-                        let recipeImageFile = currentIndex["imageFile"] as! PFFile
+//                if recipePhoto.count == 0 {
+//                    
+//                } else {
+//                    let currentIndex = recipePhoto[0]
+                        let recipeImageFile = recipeObject["image"] as! PFFile
                         recipeImageFile.getDataInBackgroundWithBlock {
                             (imageData: NSData?, error: NSError?) -> Void in
                             if error == nil {
@@ -106,13 +112,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
                                 }
                             }
                     }
-                    
-                    
-
-                
-                }
-                
-                
+//                }
                 
                 return recipeImageCell
             }
@@ -171,8 +171,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
         // ingredients is section 1 so set here for section 1 here
         if section == 1 {
-            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 50))
+            let label = UILabel(frame: CGRect(x: 12, y: 10, width: 300, height: 20))
             label.text = "Ingredients"
             label.textColor = UIColor.blackColor()
             label.font = UIFont(name: "SFUIText-Regular", size: 18)
@@ -182,8 +182,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             
         // directions is section 2 so set here for section 2 here
         else if section == 2 {
-            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
-            let label = UILabel(frame: CGRect(x: 12, y: 20, width: 300, height: 20))
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 50))
+            let label = UILabel(frame: CGRect(x: 12, y: 10, width: 300, height: 20))
             label.text = "Directions"
             label.textColor = UIColor.blackColor()
             label.font = UIFont(name: "SFUIText-Regular", size: 18)

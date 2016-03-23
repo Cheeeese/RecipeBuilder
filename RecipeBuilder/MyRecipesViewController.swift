@@ -26,7 +26,7 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "onTimer", userInfo: nil, repeats: true)
         
         timer.fire()
         
@@ -34,7 +34,15 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func onTimer() {
+        
+        
         if PFUser.currentUser() != nil {
+            if recipes.count == 0 {
+                self.emptyStateView.hidden = false
+            } else {
+                self.emptyStateView.hidden = true
+            }
+            
             let query = PFQuery(className: "Recipe")
             query.whereKey("user", equalTo: PFUser.currentUser()!)
             query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
@@ -42,19 +50,17 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.reloadData()
             }
         }
-        
-        if recipes.count == 0 {
-            self.emptyStateView.hidden = false
-        } else {
-            self.emptyStateView.hidden = true
-        }
-    }
+     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+
+
+        
         let recipeCardCell = tableView.dequeueReusableCellWithIdentifier("RecipeCardCell") as! RecipeCardCell
         
         // MV Added Below

@@ -38,7 +38,7 @@ class IngredientsCell: UITableViewCell {
             })
         
         //move item added text to the right
-        self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(375, 0)
+//        self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(375, 0)
         
         delay(1.2) { () -> () in
             UIView.animateWithDuration(0.6, animations: { () -> Void in
@@ -48,7 +48,7 @@ class IngredientsCell: UITableViewCell {
                 
                 //show ingredient
                 self.ingredientsLabel.alpha = 1
-                self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(0, 0)
+//                self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(0, 0)
                 
                 //hide item added text
                 self.itemAddedLabel.alpha = 0

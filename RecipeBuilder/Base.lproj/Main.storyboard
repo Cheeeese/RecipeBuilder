@@ -628,7 +628,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="checkMark" id="yYW-zw-K2K">
-                                                                    <rect key="frame" x="341" y="8" width="26" height="30"/>
+                                                                    <rect key="frame" x="334" y="8" width="26" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" id="s4r-1a-mcH">

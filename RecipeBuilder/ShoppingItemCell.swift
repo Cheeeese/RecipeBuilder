@@ -157,7 +157,6 @@ class ShoppingItemCell: UITableViewCell {
                         self.shoppingItemView.center = self.shoppingItemStaticLeft
                         self.shoppingItemLabel.textColor = self.grayColor
                         self.itemCheckImageView.alpha = 1
-
 //                        self.shoppingItemView.backgroundColor = self.yellowColor
                         self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
 //                        UIView.animateWithDuration(0.2, animations: { () -> Void in

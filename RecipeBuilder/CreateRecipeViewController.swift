@@ -24,12 +24,28 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var prepTimeTextField: UITextField!
     var cookTimeTextField: UITextField!
     
+    var originalScrollPosition: CGFloat!
+    
+    // for ingredient placeholder
+    var placeholder: UILabel!
+    var placeholderArray: [UILabel]! = []
+    
+    // for direction placeholder
+    var placeholderDirections: UILabel!
+    var placeholderArrayDirections: [UILabel]! = []
+    
     var ingredientsArray: [UITextView]! = []
     var directionsArray: [UITextView]! = []
     
-    var categoryData = ["Breakfast", "Lunch", "Dinner", "Salad", "Dessert", "Drinks"]
+    var ingredientRowNumber = [1,2,3,4]
+    var directionsRowNumber = [1,2,3,4]
+    
+    var categoryData = ["Breakfast", "Appetizer", "Salad", "Entree", "Dessert", "Beverages"]
     var picker = UIPickerView()
     
+    var ingredientHeights: [Int : CGFloat]! = [Int : CGFloat]()
+    var directionHeights: [Int : CGFloat]! = [Int : CGFloat]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +60,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         picker.delegate = self
         picker.dataSource = self
-        //categoryInputTextField.inputView = picker
-        //categoryInputTextField.text = nil
+        
+        
 
     }
 
@@ -65,9 +81,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         if section == 0 {
           return 7
         } else if section == 1 {
-            return 4
+            return ingredientRowNumber.count
         } else if section == 2 {
-            return 4
+            return directionsRowNumber.count
         } else {
             return 1
         }
@@ -144,12 +160,31 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             let ingredientsInputCell = tableView.dequeueReusableCellWithIdentifier("IngredientsInputCell") as! IngredientsInputCell
             
+            if indexPath.row % 2 == 0 {
+                ingredientsInputCell.ingredientsInputTextView.backgroundColor = UIColor(red: 245/255, green: 248/255, blue: 250/255, alpha: 1.0)
+            } else {
+                
+                ingredientsInputCell.ingredientsInputTextView.backgroundColor = UIColor(red: 225/255, green: 232/255, blue: 237/255, alpha: 1.0)
+            }
+           
             ingredientsInputTextView = ingredientsInputCell.ingredientsInputTextView
             ingredientsInputCell.ingredientsInputTextView.delegate = self
             
             ingredientsArray.append(ingredientsInputCell.ingredientsInputTextView)
-//            ingredientsArray[indexPath.row] = ingredientsInputCell.ingredientsInputTextView
+
+            placeholder = ingredientsInputCell.placeholder
+            placeholderArray.append(ingredientsInputCell.placeholder)
             
+            
+            // delete button for ingredients cells
+            let image = UIImage(named: "deleteCell.png") as UIImage?
+            let deleteBtn: UIButton = UIButton(frame: CGRectMake(330, 18, 15, 15))
+            deleteBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
+            deleteBtn.setImage(image, forState: .Normal)
+            deleteBtn.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            deleteBtn.tag = 3               // change tag property
+            ingredientsInputCell.addSubview(deleteBtn) // add to view as subview
+
             return ingredientsInputCell
         
         //SECTION 2 - DIRECTIONS
@@ -157,10 +192,32 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             let directionsInputCell = tableView.dequeueReusableCellWithIdentifier("DirectionsInputCell") as! DirectionsInputCell
             
+            
+            // check if row is even or odd and change backgroundColor
+            if indexPath.row % 2 == 0 {
+                directionsInputCell.directionsInputTextView.backgroundColor = UIColor(red: 245/255, green: 248/255, blue: 250/255, alpha: 1.0)
+            } else {
+                
+                directionsInputCell.directionsInputTextView.backgroundColor = UIColor(red: 225/255, green: 232/255, blue: 237/255, alpha: 1.0)
+            }
+            
             directionsInputTextView = directionsInputCell.directionsInputTextView
             directionsInputCell.directionsInputTextView.delegate = self
             
             directionsArray.append(directionsInputCell.directionsInputTextView)
+
+            placeholderDirections = directionsInputCell.placeholder
+            placeholderArrayDirections.append(directionsInputCell.placeholder)
+            
+            
+            // delete button for directions cells
+            let image = UIImage(named: "deleteCell.png") as UIImage?
+            let deleteBtn: UIButton = UIButton(frame: CGRectMake(330, 26, 15, 15))
+            deleteBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
+            deleteBtn.setImage(image, forState: .Normal)
+            deleteBtn.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            deleteBtn.tag = 4               // change tag property
+            directionsInputCell.addSubview(deleteBtn) // add to view as subview
             
             return directionsInputCell
         
@@ -174,14 +231,14 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     
-    
     //headers go here
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         // ingredients is section 1 so set here for section 1 here
         if section == 1 {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 30))
-            let label = UILabel(frame: CGRect(x: 17, y: 15, width: 300, height: 20))
+            headerView.backgroundColor = UIColor.whiteColor()
+            let label = UILabel(frame: CGRect(x: 17, y: 7, width: 300, height: 20))
             label.text = "Ingredients"
             label.textColor = UIColor.blackColor()
             label.font = UIFont(name: "SFUIText-Regular", size: 18)
@@ -192,7 +249,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             // directions is section 2 so set here for section 2 here
         else if section == 2 {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 30))
-            let label = UILabel(frame: CGRect(x: 17, y: 15, width: 300, height: 20))
+            headerView.backgroundColor = UIColor.whiteColor()
+            let label = UILabel(frame: CGRect(x: 17, y: 7, width: 300, height: 20))
             label.text = "Directions"
             label.textColor = UIColor.blackColor()
             label.font = UIFont(name: "SFUIText-Regular", size: 18)
@@ -208,9 +266,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     // set heights for headers
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 0
+            return 0.01
         }
-        else {
+        else if section == 3 {
+            return 0.01
+        } else {
             return 40
         }
     }
@@ -220,8 +280,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         // ingredients is section 1 so set here for section 1 here
         if section == 1 {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 15))
-            let addIngredientBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 15))
+            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            let addIngredientBtn: UIButton = UIButton(frame: CGRectMake(-7, 10, 200, 15))
+            footerView.backgroundColor = UIColor.whiteColor()
             addIngredientBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
             addIngredientBtn.setTitle("+ Add another ingredient", forState: UIControlState.Normal)
             addIngredientBtn.titleLabel!.font = UIFont(name: "SFUIText-Regular", size: 13)
@@ -233,8 +294,9 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             // directions is section 2 so set here for section 2 here
         else if section == 2 {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 15))
-            let addStepBtn: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 15))
+            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 40))
+            footerView.backgroundColor = UIColor.whiteColor()
+            let addStepBtn: UIButton = UIButton(frame: CGRectMake(-25, 10, 200, 15))
             addStepBtn.setTitleColor(UIColor(red: 74/255, green: 188/255, blue: 188/255, alpha: 1.0) /* #4abcbc */, forState: UIControlState.Normal)
             addStepBtn.setTitle("+ Add another step", forState: UIControlState.Normal)
             addStepBtn.titleLabel!.font = UIFont(name: "SFUIText-Regular", size: 13)
@@ -252,10 +314,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         if section == 0 {
-            return 0
+            return 0.01
         }
         else {
-            return 15
+            return 40
         }
     }
 
@@ -289,21 +351,17 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             //Defining the height when INGREDIENTS has no text and when it has. Basically expanding textview height implementation
 
-            if ingredientsInputTextView == nil {
-                return 72
-            } else {
-                return ingredientsInputTextView.frame.height + 15
-            }
+            let height = ingredientHeights[indexPath.row]
+            
+            return height ?? 50
             
         } else if indexPath.section == 2 {
             
             //Defining the height when DIRECTIONS has no text and when it has. Basically expanding textview height implementation
             
-            if directionsInputTextView == nil {
-                return 92
-            } else {
-                return directionsInputTextView.frame.height + 35
-            }
+            let height = directionHeights[indexPath.row]
+            
+            return height ?? 70
             
         } else {
             return 110
@@ -314,21 +372,17 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func addImageTapped(sender: UIButton) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
-            
-            
-            
+
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
             imagePicker.allowsEditing = false
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
-        
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
         })
         
         selectedImage.image = image
@@ -340,7 +394,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             addImageBtn.setImage(nil, forState: .Normal)
             addImageBtn.setTitle(nil, forState: .Normal)
         }
-        
     }
     
     
@@ -401,51 +454,94 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    //Expanding Ingredient TextView
-    func expandIngredientsTextView () {
+    //Expanding Generic TextView
+    func fittedSize(textView: UITextView, minHeight: CGFloat = 50) -> CGSize {
         
-        let fixedWidth = ingredientsInputTextView.frame.size.width
-        ingredientsInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = ingredientsInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = ingredientsInputTextView.frame
+        let fixedWidth = textView.frame.size.width
+        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = textView.frame
         
-        let height = max(newSize.height + 5, 55)
-        
+        let height = max(newSize.height, minHeight)
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: height)
-        ingredientsInputTextView.frame = newFrame
         
-        ingredientsInputTextView.scrollEnabled = false
+        textView.frame = newFrame
+        textView.scrollEnabled = false
         
+        return newFrame.size
     }
     
-    //Expanding Directions TextView
-    func expandDirectionsTextView () {
-        
-        let fixedWidth = directionsInputTextView.frame.size.width
-        
-        directionsInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = directionsInputTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = directionsInputTextView.frame
-        
-        let height = max(newSize.height + 5, 75)
-        
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: height)
-        directionsInputTextView.frame = newFrame
-        
-        directionsInputTextView.scrollEnabled = false
-        
+    func textViewDidBeginEditing(textView: UITextView) {
+        let cell = textView.superview!.superview! as! UITableViewCell
+        let indexPath = recipeInputTableView.indexPathForCell(cell)!
+        recipeInputTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Middle, animated: true)
     }
-    
+
     
     //Check the expanding texview functions
     func textViewDidChange(textView: UITextView) {
-        //expandDirectionsTextView()
-        expandIngredientsTextView()
-        expandTextView()
+        let cell = textView.superview!.superview! as! UITableViewCell
+        let indexPath = recipeInputTableView.indexPathForCell(cell)!
         
+        if indexPath.section == 0 {
+            expandTextView()
+        } else if indexPath.section == 1 {
+            let size = fittedSize(textView)
+            
+            ingredientHeights[indexPath.row] = size.height
+        } else if indexPath.section == 2 {
+            let size = fittedSize(textView, minHeight: 70)
+            
+            directionHeights[indexPath.row] = size.height
+        }
+        
+        
+        // Show and hide placeholder
+        if ingredientsArray[indexPath.row].text.characters.count < 1 {
+            placeholderArray[indexPath.row].alpha = 1
+        } else {
+            placeholderArray[indexPath.row].alpha = 0
+        }
+        
+        if directionsArray[indexPath.row].text.characters.count < 1 {
+            placeholderArrayDirections[indexPath.row].alpha = 1
+        } else {
+            placeholderArrayDirections[indexPath.row].alpha = 0
+        }
+
         recipeInputTableView.beginUpdates()
         recipeInputTableView.endUpdates()
         
+    }
+
+    // DELETE function - buggy behavior
+    
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            if indexPath.section == 1 {
+//                //ingredientsArray.removeAtIndex(indexPath.row)
+//                recipeInputTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//            }
+//        }
+//    }
+    
+    func buttonAction(sender: UIButton!) {
+        let btnsendtag: UIButton = sender
+  
+        if btnsendtag.tag == 1 {
+            ingredientRowNumber.append(ingredientRowNumber.count + 1)
+            //print(rowNumber.count)
+            self.recipeInputTableView.reloadData()
+        } else if btnsendtag.tag == 2 {
+            directionsRowNumber.append(directionsRowNumber.count + 1)
+            self.recipeInputTableView.reloadData()
+        } else if btnsendtag.tag == 3 {
+            self.ingredientRowNumber.removeAtIndex(0)
+            self.recipeInputTableView.reloadData()
+        } else if btnsendtag.tag == 4 {
+            self.directionsRowNumber.removeAtIndex(0)
+            self.recipeInputTableView.reloadData()
+        }
     }
     
     //Save recipe by sending data to server
@@ -465,13 +561,27 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipe["prep_time"] = prepTimeTextField.text
         recipe["cook_time"] = cookTimeTextField.text
         
+        // anjani added code here
+        if selectedImage.image != nil {
+            let imageData = UIImagePNGRepresentation(selectedImage.image!)
+            let imageFile = PFFile(name:"image.png", data:imageData!)
+            recipe["image"] = imageFile
+        } else {
+            let emptyImageContainer = UIImage(named: "blankImage")
+            
+            let emptyImage = UIImagePNGRepresentation(emptyImageContainer!)
+            let emptyImageFile = PFFile(name:"image.png", data:emptyImage!)
+            
+            recipe["image"] = emptyImageFile
+        }
+        // end added code
         
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
            
         }
         
         var currentRecipeObject = recipe
-        
+
         for index in 0...(ingredientsArray.count - 1) {
         
             var ingredients = PFObject(className: "Ingredients")

@@ -10,6 +10,7 @@ import UIKit
 
 class DirectionsInputCell: UITableViewCell {
     @IBOutlet weak var directionsInputTextView: UITextView!
+    @IBOutlet weak var placeholder: UILabel!
 
 
     override func awakeFromNib() {

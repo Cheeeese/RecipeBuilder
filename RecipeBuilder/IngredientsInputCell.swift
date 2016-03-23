@@ -10,6 +10,7 @@ import UIKit
 
 class IngredientsInputCell: UITableViewCell {
     @IBOutlet weak var ingredientsInputTextView: UITextView!
+    @IBOutlet weak var placeholder: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

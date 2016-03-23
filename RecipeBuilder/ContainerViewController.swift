@@ -54,7 +54,6 @@ class ContainerViewController: UIViewController {
             buttons[previousIndex].selected = false
         }
 
-        
         // remove previous view controller
         previousVC.willMoveToParentViewController(nil)
         previousVC.view.removeFromSuperview()
@@ -74,9 +73,7 @@ class ContainerViewController: UIViewController {
         //calls view did appear
         vc.didMoveToParentViewController(self)
     }
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

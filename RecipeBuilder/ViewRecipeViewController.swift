@@ -95,8 +95,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
                         }
                     }
                 }
-
-                
                 return recipeImageCell
             }
             else if indexPath.row == 1 {
@@ -126,24 +124,17 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         // ingredients section
         else if indexPath.section == 1 {
             let ingredientsCell = tableView.dequeueReusableCellWithIdentifier("IngredientsCell") as! IngredientsCell
-            
             ingredientsCell.viewRecipeViewController = self
-            
-          //  ingredientsCell.checkMark.transform = CGAffineTransformMakeScale(0.8, 0.8)
-            
             let currentIndex = ingredients[indexPath.row]
             ingredientsCell.ingredientsLabel.text = currentIndex["name"] as? String
-            
             return ingredientsCell
         }
         
         //directions section
         else {
             let directionsCell = tableView.dequeueReusableCellWithIdentifier("DirectionsCell") as! DirectionsCell
-      
             let currentIndex = directions[indexPath.row]
             directionsCell.directionsLabel.text = currentIndex["name"] as? String
-            
             return directionsCell
         }
 
@@ -239,9 +230,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         shoppingItem["user"] = PFUser.currentUser()
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-        }
-
-        
+        } 
     }
 
     /*

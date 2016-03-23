@@ -60,9 +60,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         picker.delegate = self
         picker.dataSource = self
-        
-        
-
     }
 
     // go back to my recipes

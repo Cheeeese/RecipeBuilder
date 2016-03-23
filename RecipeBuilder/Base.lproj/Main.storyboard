@@ -514,7 +514,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QNx-o4-Ag3">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QNx-o4-Ag3">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.85490196080000003" green="0.8862745098" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>

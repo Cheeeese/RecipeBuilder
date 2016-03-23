@@ -21,7 +21,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     // TEMP DEFINED THE SHOPPING LIST
     var shoppingList = ["2 sweet potatoes", "2 eggs", "1  onion", "Olive Oil", "Basil", "Thyme", "Chili Flakes", "Chives", "Parsley", "Bread"]
     var shoppingListChecked: [Int] = []
-
+    @IBOutlet weak var emptyStateView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +29,23 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         shoppingListTableView.delegate = self
         shoppingListTableView.dataSource = self
         shoppingListTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        
+
         var shoppingListQuery = PFQuery(className: "ShoppingItem")
         shoppingListQuery.whereKey("user", equalTo: PFUser.currentUser()!)
         shoppingListQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.newShoppingList = results as [PFObject]!
             self.shoppingListChecked = [Int](count: self.newShoppingList.count, repeatedValue: 0)
+            self.handleEmptyState()
             self.shoppingListTableView.reloadData()
-//            print(self.newShoppingList)
         }
-        
-
-        
-//        shoppingListTableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: CellIdentifier)
-        
+    }
+    
+    func handleEmptyState() {
+        if newShoppingList.count == 0 {
+            self.emptyStateView.hidden = false
+        } else {
+            self.emptyStateView.hidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,17 +61,14 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
 //    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  
         return newShoppingList.count
-//        return shoppingList.count
-
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
 //        print("Number of Rows: \(indexPath.row)")
 
-        var cell = shoppingListTableView.dequeueReusableCellWithIdentifier("ShoppingItemCell", forIndexPath: indexPath) as! ShoppingItemCell
+        let cell = shoppingListTableView.dequeueReusableCellWithIdentifier("ShoppingItemCell", forIndexPath: indexPath) as! ShoppingItemCell
         
         cell.reset()
 

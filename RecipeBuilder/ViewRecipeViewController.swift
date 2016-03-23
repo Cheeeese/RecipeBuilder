@@ -95,24 +95,20 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             if indexPath.row == 0 {
                 let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
                 
-//                if recipePhoto.count == 0 {
-//                    
-//                } else {
-//                    let currentIndex = recipePhoto[0]
-                        let recipeImageFile = recipeObject["image"] as! PFFile
-                        recipeImageFile.getDataInBackgroundWithBlock {
-                            (imageData: NSData?, error: NSError?) -> Void in
-                            if error == nil {
-                                if let imageData = imageData {
-                                    let image = UIImage(data:imageData)
-                                    recipeImageCell.recipeImageContainer.image = image
-                                    UIView.animateWithDuration(0.7, animations: { () -> Void in
-                                        recipeImageCell.recipeImageContainer.alpha = 1
-                                    })
-                                }
-                            }
+                let recipeImageFile = recipeObject["image"] as! PFFile
+                recipeImageFile.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            recipeImageCell.recipeImageContainer.image = image
+                            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                                recipeImageCell.recipeImageContainer.alpha = 1
+                            })
+                        }
                     }
-//                }
+                }
+
                 
                 return recipeImageCell
             }

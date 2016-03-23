@@ -53,7 +53,7 @@ class TimerCell: UITableViewCell {
         // Here is the string containing the timer
         // Update your label here
 //        print("Time at row \(self.cellIndexPath.row) is:")
-        print(displayTimeAsString(timerCounter))
+ //       print(displayTimeAsString(timerCounter))
         timerCounter!--
     }
     

@@ -17,7 +17,7 @@ class TimersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         timersTableView.delegate = self
         timersTableView.dataSource = self
-//        timersTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        timersTableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
 
         // Do any additional setup after loading the view.
@@ -30,29 +30,37 @@ class TimersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return 2
         
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 177
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("Number of Rows: \(indexPath.row)")
-        
-        var cell = timersTableView.dequeueReusableCellWithIdentifier("TimerCell", forIndexPath: indexPath) as! TimerCell
-        
-        cell.timersViewController = self
-        cell.cellIndexPath = indexPath
+   //     print("Number of Rows: \(indexPath.row)")
+        if indexPath.row == 0 {
+            var cell = timersTableView.dequeueReusableCellWithIdentifier("TimerCell", forIndexPath: indexPath) as! TimerCell
+            
+            cell.timersViewController = self
+            cell.cellIndexPath = indexPath
 
-        cell.initialTime = 10
-//        cell.timerTimeLabel.text = cell.displayTimeAsString(10)
-        cell.onTimer(cell.timer)
-        cell.timerRecipeLabel.text = "Test Recipe"
-        
-        return cell
+            cell.initialTime = 10
+    //        cell.timerTimeLabel.text = cell.displayTimeAsString(10)
+            cell.onTimer(cell.timer)
+            cell.timerRecipeLabel.text = "Test Recipe"
+            
+            return cell
+        } else {
+            var cell = timersTableView.dequeueReusableCellWithIdentifier("TimerCell2", forIndexPath: indexPath) as! TimerCell
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Tapped \(indexPath.row)")
+//        print("Tapped \(indexPath.row)")
     }
 
 

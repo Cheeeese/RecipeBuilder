@@ -30,6 +30,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         shoppingListTableView.dataSource = self
         shoppingListTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        
         var shoppingListQuery = PFQuery(className: "ShoppingItem")
         shoppingListQuery.whereKey("user", equalTo: PFUser.currentUser()!)
         shoppingListQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in

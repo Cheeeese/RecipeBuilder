@@ -169,10 +169,16 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             ingredientsInputTextView = ingredientsInputCell.ingredientsInputTextView
             ingredientsInputCell.ingredientsInputTextView.delegate = self
             
-            ingredientsArray.append(ingredientsInputCell.ingredientsInputTextView)
+            // NEW CODE: If the textview is already in the ingredientsArray, don't add it (ANJANI'S COWORKER)
+            if ingredientsArray.contains(ingredientsInputCell.ingredientsInputTextView) == false {
+                ingredientsArray.append(ingredientsInputCell.ingredientsInputTextView)
+            }
+            // END NEW CODE
 
             placeholder = ingredientsInputCell.placeholder
             placeholderArray.append(ingredientsInputCell.placeholder)
+            
+            
             
             
             // delete button for ingredients cells
@@ -203,7 +209,11 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             directionsInputTextView = directionsInputCell.directionsInputTextView
             directionsInputCell.directionsInputTextView.delegate = self
             
-            directionsArray.append(directionsInputCell.directionsInputTextView)
+            //NEW CODE (ANJANI'S COWORKER)
+            if directionsArray.contains(directionsInputCell.directionsInputTextView) == false {
+                directionsArray.append(directionsInputCell.directionsInputTextView)
+            }
+            //END NEW CODE
 
             placeholderDirections = directionsInputCell.placeholder
             placeholderArrayDirections.append(directionsInputCell.placeholder)
@@ -474,10 +484,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         let cell = textView.superview!.superview! as! UITableViewCell
         let indexPath = recipeInputTableView.indexPathForCell(cell)!
         recipeInputTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Middle, animated: true)
-        
-//        print(descriptionInputTextView.text)
-//        print(ingredientsArray.count)
-//        print(directionsArray.count)
     }
 
     
@@ -594,54 +600,43 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         // end added code
         
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-           
         }
         
         var currentRecipeObject = recipe
 
+        //NEW CODE DOWN HERE (ANJANI'S COWORKER)
         for index in 0...(ingredientsArray.count - 1) {
-        
-            var ingredients = PFObject(className: "Ingredients")
-            ingredients["name"] = ingredientsArray[index].text
-            ingredients["recipe"] = currentRecipeObject
-        
-            ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            let ingredientsName = ingredientsArray[index].text
+            if ingredientsName != nil && ingredientsName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+                
+                var ingredients = PFObject(className: "Ingredients")
+                ingredients["name"] = ingredientsName
+                ingredients["recipe"] = currentRecipeObject
+                
+                ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                }
             }
-
-         
        }
         
+        //NEW CODE DOWN HERE (ANJANI'S COWORKER)
         for index in 0...(directionsArray.count - 1) {
             
-            var directions = PFObject(className: "Directions")
-            directions["name"] = directionsArray[index].text
-            directions["recipe"] = currentRecipeObject
-
-            directions.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            let directionName = directionsArray[index].text
+            if directionName != nil && directionName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+                var directions = PFObject(className: "Directions")
+                directions["name"] = directionName
+                directions["recipe"] = currentRecipeObject
+                
+                directions.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                }
             }
-            
-          
         }
-        
-        
-        
-        
-        
-        
-
-        
-        
-//        performSegueWithIdentifier("SaveRecipe", sender: nil)
         
         // for some reason does not update the myRecipesViewController
         dismissViewControllerAnimated(true, completion: nil)
         
         
     }
-    
-    
-    
-    
 
     /*
     // MARK: - Navigation

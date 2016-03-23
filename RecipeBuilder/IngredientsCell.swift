@@ -20,6 +20,7 @@ class IngredientsCell: UITableViewCell {
     let blackColor = UIColor(red: 41/255.0, green: 47/255.0, blue: 51/255.0, alpha:1.0)
  
     @IBAction func didTapPlus(sender: AnyObject) {
+        
         viewRecipeViewController.createItem(ingredientsLabel.text!)
         
         UIView.animateWithDuration(0.9, animations: { () -> Void in

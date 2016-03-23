@@ -97,6 +97,9 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 46
+    }
     /*
     // MARK: - Navigation
 

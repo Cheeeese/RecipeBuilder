@@ -29,13 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-//        if PFUser.currentUser() != nil {
-//            var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            var vc = storyboard.instantiateViewControllerWithIdentifier("ContainerViewController") as! UIViewController
-//            
-//            window?.rootViewController = vc
-//        }
-//   
+        // bypasses login screen if user is logged in
+        if PFUser.currentUser() != nil {
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("ContainerViewController") as! UIViewController
+            
+            window?.rootViewController = vc
+        }
+   
         
         return true
     }

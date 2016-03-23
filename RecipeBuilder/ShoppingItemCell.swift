@@ -37,6 +37,10 @@ class ShoppingItemCell: UITableViewCell {
     let blueColor = UIColor(red: 96.0/255.0, green: 191.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     let whiteColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     let blackColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    
+    
+    let yellowOrangeColor = UIColor(red: 254/255.0, green: 191/255.0, blue: 39/255.0, alpha: 1.0)
+    let redOrangeColor = UIColor(red: 247/255.0, green: 86/255.0, blue: 49/255.0, alpha: 1.0)
 
     
     var shoppingListViewController: ShoppingListViewController!
@@ -57,7 +61,7 @@ class ShoppingItemCell: UITableViewCell {
         
         shoppingItemStaticRight = CGPoint(x: 700.0, y: shoppingItemView.center.y)
         shoppingItemStaticLeft = CGPoint(x: -700.0, y: shoppingItemView.center.y)
-        shoppingItemBackgroundView.backgroundColor = grayColor
+        shoppingItemBackgroundView.backgroundColor = yellowOrangeColor
         
         // Instantiate the pan gesture recognizer with code
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"onCustomPan:")
@@ -92,9 +96,8 @@ class ShoppingItemCell: UITableViewCell {
     }
     
     func iconsFollowPan() {
-    
-        archiveIconView.center = CGPoint(x: shoppingItemView.center.x - 235.0, y: archiveIconOriginalCenter.y)
-        deleteIconView.center = CGPoint(x: shoppingItemView.center.x + 235.0, y: deleteIconOriginalCenter.y)
+        archiveIconView.center = CGPoint(x: shoppingItemView.center.x - 229.5, y: archiveIconOriginalCenter.y)
+        deleteIconView.center = CGPoint(x: shoppingItemView.center.x + 255.0, y: deleteIconOriginalCenter.y)
         
     }
 
@@ -110,7 +113,8 @@ class ShoppingItemCell: UITableViewCell {
         let velocity = panGestureRecognizer.velocityInView(self)
         
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
-            print("Gesture began at: \(point)")
+      //      print("Gesture began at: \(point)")
+            
             
             shoppingItemOriginalCenter = shoppingItemView.center
             //            archiveIconOriginalCenter = archiveIconView.center
@@ -119,21 +123,29 @@ class ShoppingItemCell: UITableViewCell {
             
             
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
-            print("Gesture changed at: \(point)")
+      //      print("Gesture changed at: \(point)")
+            print(shoppingItemView.center)
             
             shoppingItemView.center = CGPoint(x: shoppingItemOriginalCenter.x + translation.x, y: shoppingItemOriginalCenter.y)
-            if shoppingItemView.center.x > 287.5 || shoppingItemView.center.x < 87.5 {
+            
+            if shoppingItemView.center.x > 270.5 || shoppingItemView.center.x < 87.5 {
                 iconsFollowPan()
             }
-
+            
+            
+            if shoppingItemView.center.x < 187.5 {
+                shoppingItemBackgroundView.backgroundColor = redOrangeColor
+            } else if shoppingItemView.center.x > 187.5 {
+                shoppingItemBackgroundView.backgroundColor = yellowOrangeColor
+            }
             
             
             
             
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
-            print("Gesture ended at: \(point)")
+         //   print("Gesture ended at: \(point)")
             
-            if shoppingItemView.center.x > 287.5 && velocity.x > 0.0 {
+            if shoppingItemView.center.x > 270.5 && velocity.x > 0.0 {
 
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
 

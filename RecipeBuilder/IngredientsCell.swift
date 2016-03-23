@@ -22,7 +22,7 @@ class IngredientsCell: UITableViewCell {
     @IBAction func didTapPlus(sender: AnyObject) {
         viewRecipeViewController.createItem(ingredientsLabel.text!)
         
-        UIView.animateWithDuration(0.6, animations: { () -> Void in
+        UIView.animateWithDuration(0.9, animations: { () -> Void in
             
             //rotate plus and fade in check mark
             self.plusButton.transform = CGAffineTransformMakeRotation(45)
@@ -36,19 +36,16 @@ class IngredientsCell: UITableViewCell {
             self.itemAddedLabel.alpha = 1
             
             })
-        
-        //move item added text to the right
-//        self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(375, 0)
-        
-        delay(1.2) { () -> () in
-            UIView.animateWithDuration(0.6, animations: { () -> Void in
+
+
+        delay(1.8) { () -> () in
+            UIView.animateWithDuration(0.9, animations: { () -> Void in
                 //fade out check mark and unrotate plus
                 self.checkMark.alpha = 0
                 self.plusButton.transform = CGAffineTransformIdentity
                 
                 //show ingredient
                 self.ingredientsLabel.alpha = 1
-//                self.ingredientsLabel.transform = CGAffineTransformMakeTranslation(0, 0)
                 
                 //hide item added text
                 self.itemAddedLabel.alpha = 0

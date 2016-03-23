@@ -69,6 +69,7 @@ class ShoppingItemCell: UITableViewCell {
         panGestureRecognizer.delegate = self
 
         shoppingItemOriginalCenter = shoppingItemView.center
+        resetItems()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

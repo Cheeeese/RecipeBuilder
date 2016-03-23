@@ -20,37 +20,34 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
-        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "onTimer", userInfo: nil, repeats: true)
-        
         timer.fire()
-        
-
+    }
+    
+    func handleEmptyState() {
+        if recipes.count == 0 {
+            self.emptyStateView.hidden = false
+        } else {
+            self.emptyStateView.hidden = true
+        }
     }
     
     func onTimer() {
-        
-        
         if PFUser.currentUser() != nil {
-            if recipes.count == 0 {
-                self.emptyStateView.hidden = false
-            } else {
-                self.emptyStateView.hidden = true
-            }
-            
             let query = PFQuery(className: "Recipe")
             query.whereKey("user", equalTo: PFUser.currentUser()!)
             query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
                 self.recipes = results as [PFObject]!
+                self.handleEmptyState()
                 self.tableView.reloadData()
             }
         }
-     }
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
@@ -67,15 +64,13 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         // getting Recipe Title
         let recipe = recipes[indexPath.row]
         recipeCardCell.nameLabel.text = recipe["title"] as? String
-
+        
         
         // getting recipe image
         if recipe["image"] as? String == "empty" {
             
         } else {
             let recipeImageFile = recipe["image"] as! PFFile
-            
-            
             recipeImageFile.getDataInBackgroundWithBlock {
                 (imageData: NSData?, error: NSError?) -> Void in
                 if error == nil {
@@ -85,34 +80,7 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
                     }
                 }
             }
-
         }
-
-        
-        
-//        // getting recipe Image
-//        if recipePhoto.count == 0 {
-//            
-//        } else {
-//            
-//            let currentIndex = recipePhoto[indexPath.row]
-//            
-//            let recipeImageFile = currentIndex["imageFile"] as! PFFile
-//            
-//            recipeImageFile.getDataInBackgroundWithBlock {
-//                (imageData: NSData?, error: NSError?) -> Void in
-//                if error == nil {
-//                    if let imageData = imageData {
-//                        let image = UIImage(data:imageData)
-//                        recipeCardCell.recipeImageContainer.image = image
-//                        UIView.animateWithDuration(0.7, animations: { () -> Void in
-//                            recipeCardCell.recipeImageContainer.alpha = 1
-//                        })
-//                    }
-//                }
-//            }
-//        }
-        
         return recipeCardCell
     }
     
@@ -122,14 +90,12 @@ class MyRecipesViewController: UIViewController, UITableViewDataSource, UITableV
         var currentUser = PFUser.currentUser() // this will now be nil
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ViewRecipeSegue" {

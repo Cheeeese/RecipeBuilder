@@ -68,8 +68,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         else {
             return directions.count
         }
-        
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -81,7 +79,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let recipeImageCell = tableView.dequeueReusableCellWithIdentifier("RecipeImageCell") as! RecipeImageCell
-                
                 let recipeImageFile = recipeObject["image"] as! PFFile
                 recipeImageFile.getDataInBackgroundWithBlock {
                     (imageData: NSData?, error: NSError?) -> Void in
@@ -230,7 +227,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         shoppingItem["user"] = PFUser.currentUser()
         
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-        } 
+        }
     }
 
     /*

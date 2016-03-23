@@ -12,6 +12,7 @@ class RecipeCardCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
 
+    @IBOutlet weak var recipeImageContainer: UIImageView!
     // MV Added Below
     var myRecipesViewController: MyRecipesViewController!
     var cellIndexPath: NSIndexPath!

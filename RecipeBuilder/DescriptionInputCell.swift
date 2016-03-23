@@ -12,6 +12,7 @@ class DescriptionInputCell: UITableViewCell {
     
     @IBOutlet weak var descriptionInputLabel: UILabel!
     @IBOutlet weak var descriptionInputTextView: UITextView!
+    @IBOutlet weak var placeholder: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

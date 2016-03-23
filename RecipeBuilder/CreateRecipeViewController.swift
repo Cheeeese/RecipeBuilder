@@ -24,8 +24,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var prepTimeTextField: UITextField!
     var cookTimeTextField: UITextField!
     
-    var originalScrollPosition: CGFloat!
-    
     // for ingredient placeholder
     var placeholder: UILabel!
     var placeholderArray: [UILabel]! = []
@@ -34,6 +32,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var placeholderDirections: UILabel!
     var placeholderArrayDirections: [UILabel]! = []
     
+    var placeholderDescription: UILabel!
+
     var ingredientsArray: [UITextView]! = []
     var directionsArray: [UITextView]! = []
     
@@ -129,8 +129,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
                 //descriptionInputCell.descriptionInputTextView.frame.size.width = descriptionInputTextView.frame.size.width
                 
                 descriptionInputCell.descriptionInputTextView.delegate = self
-                
-                //            expandTextView()
+                placeholderDescription = descriptionInputCell.placeholder
                 
                 return descriptionInputCell
                 
@@ -475,6 +474,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         let cell = textView.superview!.superview! as! UITableViewCell
         let indexPath = recipeInputTableView.indexPathForCell(cell)!
         recipeInputTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Middle, animated: true)
+        
+//        print(descriptionInputTextView.text)
+//        print(ingredientsArray.count)
+//        print(directionsArray.count)
     }
 
     
@@ -497,18 +500,32 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         
         
         // Show and hide placeholder
-        if ingredientsArray[indexPath.row].text.characters.count < 1 {
-            placeholderArray[indexPath.row].alpha = 1
-        } else {
-            placeholderArray[indexPath.row].alpha = 0
+        print("Ingredients array count \(ingredientsArray.count)")
+        print("Index Path Row \(indexPath.row)")
+        
+        if indexPath.section == 1 {
+            if ingredientsArray[indexPath.row].text.characters.count < 1 {
+                placeholderArray[indexPath.row].alpha = 1
+            } else {
+                placeholderArray[indexPath.row].alpha = 0
+            }
         }
         
-        if directionsArray[indexPath.row].text.characters.count < 1 {
-            placeholderArrayDirections[indexPath.row].alpha = 1
-        } else {
-            placeholderArrayDirections[indexPath.row].alpha = 0
-        }
+        if indexPath.section == 2 {
+            if directionsArray[indexPath.row].text.characters.count < 1 {
+                placeholderArrayDirections[indexPath.row].alpha = 1
+            } else {
+                placeholderArrayDirections[indexPath.row].alpha = 0
+            }
 
+        }
+        
+        if descriptionInputTextView.text == "" {
+            placeholderDescription.alpha = 1
+        } else {
+            placeholderDescription.alpha = 0
+        }
+        
         recipeInputTableView.beginUpdates()
         recipeInputTableView.endUpdates()
         

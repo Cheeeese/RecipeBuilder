@@ -33,16 +33,20 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
         let ingredientsQuery = PFQuery(className: "Ingredients")
         ingredientsQuery.whereKey("recipe", equalTo: recipeObject)
+        ingredientsQuery.orderByAscending("order")
         ingredientsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.ingredients = results as [PFObject]!
             self.tableView.reloadData()
+            print(self.ingredients)
         }
         
         let directionsQuery = PFQuery(className: "Directions")
         directionsQuery.whereKey("recipe", equalTo: recipeObject)
+        directionsQuery.orderByAscending("order")
         directionsQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             self.directions = results as [PFObject]!
             self.tableView.reloadData()
+            print(self.directions)
         }
 
     }

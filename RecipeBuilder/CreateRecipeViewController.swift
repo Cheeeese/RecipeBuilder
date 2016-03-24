@@ -197,7 +197,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             let directionsInputCell = tableView.dequeueReusableCellWithIdentifier("DirectionsInputCell") as! DirectionsInputCell
             
-            
             // check if row is even or odd and change backgroundColor
             if indexPath.row % 2 == 0 {
                 directionsInputCell.directionsInputTextView.backgroundColor = UIColor(red: 245/255, green: 248/255, blue: 250/255, alpha: 1.0)
@@ -208,12 +207,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             directionsInputTextView = directionsInputCell.directionsInputTextView
             directionsInputCell.directionsInputTextView.delegate = self
-            
-            //NEW CODE (ANJANI'S COWORKER)
+
             if directionsArray.contains(directionsInputCell.directionsInputTextView) == false {
                 directionsArray.append(directionsInputCell.directionsInputTextView)
             }
-            //END NEW CODE
 
             placeholderDirections = directionsInputCell.placeholder
             placeholderArrayDirections.append(directionsInputCell.placeholder)
@@ -570,12 +567,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     //Save recipe by sending data to server
     @IBAction func didTapSave(sender: UIButton) {
         
-//        recipeInputTableView.reloadData()
-        
         var recipe = PFObject(className: "Recipe")
-   //     var currentRecipeId: ObjectIdentifier!
-       
-        
         recipe["user"] = PFUser.currentUser()
         //recipe["image"] = selectedImage.image
         recipe["title"] = titleInputTextField.text
@@ -585,7 +577,6 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipe["prep_time"] = prepTimeTextField.text
         recipe["cook_time"] = cookTimeTextField.text
         
-        // anjani added code here
         if selectedImage.image != nil {
             let imageData = UIImagePNGRepresentation(selectedImage.image!)
             let imageFile = PFFile(name:"image.png", data:imageData!)
@@ -598,13 +589,10 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             
             recipe["image"] = emptyImageFile
         }
-        // end added code
-        
         recipe.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
         
         var currentRecipeObject = recipe
-
         //NEW CODE DOWN HERE (ANJANI'S COWORKER)
         for index in 0...(ingredientsArray.count - 1) {
             let ingredientsName = ingredientsArray[index].text
@@ -612,10 +600,14 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
                 
                 var ingredients = PFObject(className: "Ingredients")
                 ingredients["name"] = ingredientsName
+                ingredients["order"] = index
                 ingredients["recipe"] = currentRecipeObject
+                
                 
                 ingredients.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 }
+                
+                print(ingredients)
             }
        }
         
@@ -626,6 +618,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             if directionName != nil && directionName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
                 var directions = PFObject(className: "Directions")
                 directions["name"] = directionName
+                directions["order"] = index
                 directions["recipe"] = currentRecipeObject
                 
                 directions.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in

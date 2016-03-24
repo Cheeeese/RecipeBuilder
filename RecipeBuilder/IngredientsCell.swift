@@ -23,7 +23,7 @@ class IngredientsCell: UITableViewCell {
         
         viewRecipeViewController.createItem(ingredientsLabel.text!)
         
-        UIView.animateWithDuration(0.9, animations: { () -> Void in
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
             
             //rotate plus and fade in check mark
             self.plusButton.transform = CGAffineTransformMakeRotation(45)
@@ -40,7 +40,7 @@ class IngredientsCell: UITableViewCell {
 
 
         delay(1.8) { () -> () in
-            UIView.animateWithDuration(0.9, animations: { () -> Void in
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
                 //fade out check mark and unrotate plus
                 self.checkMark.alpha = 0
                 self.plusButton.transform = CGAffineTransformIdentity

@@ -134,7 +134,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             } else if indexPath.row == 4 {
                 let servingsInputCell = tableView.dequeueReusableCellWithIdentifier("ServingsInputCell") as! ServingsInputCell
                 
-                servingSize.text = servingsInputCell.servingSize.text
+                servingSize = servingsInputCell.servingSize
 
                 return servingsInputCell
                 

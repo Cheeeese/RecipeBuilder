@@ -111,7 +111,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             }
             else {
                 let detailsCell = tableView.dequeueReusableCellWithIdentifier("DetailsCell") as! DetailsCell
-                detailsCell.servingSizeLabel.text = recipeObject["serving"] as? String
+                detailsCell.servingSizeLabel.text = recipeObject["servings"] as? String
                 detailsCell.cookTimeLabel.text = recipeObject["cook_time"] as? String
                 detailsCell.prepTimeLabel.text = recipeObject["prep_time"] as? String
                 return detailsCell

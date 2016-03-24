@@ -226,6 +226,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         shoppingItem["name"] = currentObject
         shoppingItem["user"] = PFUser.currentUser()
         
+        shoppingItem["checked"] = 0
+        
         shoppingItem.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         }
     }

@@ -23,6 +23,9 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     var shoppingListChecked: [Int] = []
     @IBOutlet weak var emptyStateView: UIView!
     
+    let timer = NSTimer()
+    var isPanning = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,8 +40,28 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
             self.shoppingListChecked = [Int](count: self.newShoppingList.count, repeatedValue: 0)
             self.handleEmptyState()
             self.shoppingListTableView.reloadData()
+            
+        }
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        timer.fire()
+        
+        
+    }
+    
+    func onTimer() {
+        if isPanning == false && PFUser.currentUser() != nil {
+            var shoppingListQuery = PFQuery(className: "ShoppingItem")
+            shoppingListQuery.whereKey("user", equalTo: PFUser.currentUser()!)
+            shoppingListQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+                self.newShoppingList = results as [PFObject]!
+                self.handleEmptyState()
+                self.shoppingListTableView.reloadData()
+
+            }
         }
     }
+    
     
     func handleEmptyState() {
         if newShoppingList.count == 0 {
@@ -79,7 +102,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         let individualItem = newShoppingList[indexPath.row]
         cell.shoppingItemLabel.text = individualItem["name"] as? String
         
-        if shoppingListChecked[indexPath.row] == 0 {
+        if individualItem["checked"] as? Int == 0 {
 //            cell.shoppingItemView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             cell.shoppingItemLabel.textColor = cell.blackColor
             cell.itemCheckImageView.alpha = 0

@@ -105,6 +105,8 @@ class ShoppingItemCell: UITableViewCell {
     
     func onCustomPan(panGestureRecognizer: UIPanGestureRecognizer) {
         
+        shoppingListViewController.isPanning = true
+        
         // Absolute (x,y) coordinates in parent view
         let point = panGestureRecognizer.locationInView(self)
         
@@ -158,7 +160,10 @@ class ShoppingItemCell: UITableViewCell {
                         self.shoppingItemLabel.textColor = self.grayColor
                         self.itemCheckImageView.alpha = 1
 //                        self.shoppingItemView.backgroundColor = self.yellowColor
-                        self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
+
+                        self.shoppingListViewController.newShoppingList[self.cellIndexPath.row]["checked"] = 1
+                        self.shoppingListViewController.newShoppingList[self.cellIndexPath.row].saveInBackground()
+                        //                        self.shoppingListViewController.shoppingListChecked[self.cellIndexPath.row] = 1
 //                        UIView.animateWithDuration(0.2, animations: { () -> Void in
 //                            self.shoppingItemView.center = self.shoppingItemStaticCenter
 //
@@ -196,7 +201,7 @@ class ShoppingItemCell: UITableViewCell {
                         
                         var shoppingItemToDelete = self.shoppingListViewController.newShoppingList[self.cellIndexPath.row]
                         self.shoppingListViewController.newShoppingList.removeAtIndex(self.cellIndexPath.row)
-                        self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
+//                        self.shoppingListViewController.shoppingListChecked.removeAtIndex(self.cellIndexPath.row)
 
 //                        shoppingItemToDelete.deleteInBackgroundWithBlock({ (Bool, NSError?) -> Void in
 //
@@ -235,6 +240,7 @@ class ShoppingItemCell: UITableViewCell {
                 })
                 
             }
+            shoppingListViewController.isPanning = false
             
         }
     }

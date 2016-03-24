@@ -11,7 +11,12 @@ import UIKit
 class ServingsInputCell: UITableViewCell {
     
     @IBOutlet weak var ServingsInputLabel: UILabel!
+    @IBOutlet weak var servingSize: UILabel!
+    @IBOutlet weak var servingInput: UIStepper!
 
+    @IBAction func servingChanged(sender: UIStepper) {
+        servingSize.text = Int(sender.value).description
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

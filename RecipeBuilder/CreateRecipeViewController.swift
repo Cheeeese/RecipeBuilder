@@ -23,6 +23,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
     var titleInputTextField: UITextField!
     var prepTimeTextField: UITextField!
     var cookTimeTextField: UITextField!
+    var servingSize: UILabel!
     
     // for ingredient placeholder
     var placeholder: UILabel!
@@ -133,6 +134,8 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
             } else if indexPath.row == 4 {
                 let servingsInputCell = tableView.dequeueReusableCellWithIdentifier("ServingsInputCell") as! ServingsInputCell
                 
+                servingSize.text = servingsInputCell.servingSize.text
+
                 return servingsInputCell
                 
             } else if indexPath.row == 5 {
@@ -578,6 +581,7 @@ class CreateRecipeViewController: UIViewController, UITableViewDataSource, UITab
         recipe["title"] = titleInputTextField.text
         recipe["description"] = descriptionInputTextView.text
         recipe["category"] = categoryInputTextField.text
+        recipe["servings"] = servingSize.text
         recipe["prep_time"] = prepTimeTextField.text
         recipe["cook_time"] = cookTimeTextField.text
         
